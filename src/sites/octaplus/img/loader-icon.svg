@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+
+	<polygon class="loader-svg-bg" points="0,50.1 14.7,85.6 50,100 85.5,85.3 100,50.3 85.3,14.8 50.2,0 14.7,14.7 "/>
+
+	<polygon class="loader-svg-line" points="50.2,0 14.7,14.7 0,50.1 14.7,85.6 50,100 85.5,85.3 100,50.3 85.3,14.8 "/>
+
+
+	<path class="loader-svg-gota" d="M42,20.1c0,0,5.3,12.7-3.6,22.8c-8.8,10.2-8.3,20.2-2,26.2c8.1,9,29.3,5.9,30.4-14.2C68,34.9,41.5,20,42,20.1z"
+		/>
+	<path class="loader-svg-gota-inner" d="M44.7,23.8c0,0,4,11.6-4.5,20.2c-8.5,8.6-8.7,17.6-3.3,23.3c6.7,8.5,25.8,7,28-10.9 C67.1,38.6,44.3,23.7,44.7,23.8z"/>
+	<!-- <path class="loader-svg-progress" d="M44.7,23.8c0,0,4,11.6-4.5,20.2c-8.5,8.6-8.7,17.6-3.3,23.3c6.7,8.5,25.8,7,28-10.9 C67.1,38.6,44.3,23.7,44.7,23.8z"/> -->
+	<path class="loader-svg-gota-brillo" d="M51.6,35.1c0,0,11.8,9,8,23.7C59.6,58.9,66.5,43.8,51.6,35.1z"/>
+	<!-- <defs>
+		<rect id="loader-relleno" x="20" y="74" width="59" height="60"></rect>
+	</defs> -->
+	<!-- <clipPath id="SVGID_2_">
+		<use xlink:href="#loader-relleno"/>
+	</clipPath> -->
+
+	<!-- <g class="loader-svg-lines">
+		<g  class="loader-svg-line line-1">
+			<line x1="16" y1="16" x2="50.2" y2="1.8"/>
+		</g>
+		<g class="loader-svg-line line-2">
+			<line x1="1.8" y1="50.1" x2="16" y2="16"/>
+		</g>
+		<g class="loader-svg-line line-3">
+			<line x1="16" y1="84.3" x2="1.8" y2="50.1"/>
+		</g>
+		<g class="loader-svg-line line-4">
+			<line x1="50" y1="98.2" x2="16" y2="84.3"/>
+		</g>
+		<g class="loader-svg-line line-5">
+			<line x1="84.2" y1="84" x2="50" y2="98.2"/>
+		</g>
+		<g class="loader-svg-line line-6">
+			<line x1="98.2" y1="50.3" x2="84.2" y2="84"/>
+		</g>
+		<g class="loader-svg-line line-7">
+			<line x1="84" y1="16.1" x2="98.2" y2="50.3"/>
+		</g>
+		<g class="loader-svg-line line-2">
+			<line x1="50.2" y1="1.8" x2="84" y2="16.1"/>
+		</g>
+	</g> -->
+</svg>

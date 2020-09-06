@@ -1,0 +1,41 @@
+@mixin backgroundImage($imageName, $position:''){
+  position: relative;
+   background: url('../img/#{$imageName}.jpg') no-repeat center center #{$position};
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+//ANIMACIONES PARA TITULOS
+@mixin templateAnimation($duration:1s, $property: all, $delay:0, $transitionType:0){
+  @include transition-property($property);
+  @include transition-duration($duration);
+  @if($delay){
+    @include transition-delay($delay);
+  }
+  @if($transitionType){
+    transition-timing-function: $transitionType;
+  }
+}
+
+%transicionHover {
+  border: 1px solid white;
+  position: fixed;
+  
+  right: 30px;
+  @include transition(all .3s);
+  &:hover{
+    border-color: $naranja;
+    background-color: $naranja;
+    color: white;
+  }
+  &:focus{
+    background-color: shade($naranja, 10%);
+    border-color: shade($naranja, 10%);
+    @include transition(all .1s);
+  }
+}
+// %animacionTitulo{
+  
+// }

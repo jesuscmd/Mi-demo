@@ -1,0 +1,146 @@
+{
+  "blueberry" : {
+    "name" : "Blueberry",
+    "content": "Este producto ha sido uno de los favoritos de China, en el que el gobierno de Jalisco ha forjado un lazo comercial de exportación importante, pues en lo que va del año se han enviado más de 30 toneladas al país asiático.",
+    "VTP": "251,064",
+    "LN": 1,
+    "participacion" : [
+        {
+          "year": 2014,
+          "PET": "43.45%",
+          "TP": "7,834.07",
+          "LN": 1
+        },
+        {
+          "year": 2013,
+          "PET": "51.10%",
+          "TP": "5,192.40",
+          "LN": 1
+        } ,
+        {
+          "year": 2012,
+          "PET": "55.41%",
+          "TP": "3,984.40",
+          "LN": 1
+        }
+    ],
+    "municipios" : [116,82,109,108,111,86,49,13,43,124,61,60],
+
+    "img": "blueberry.jpg"
+  },
+  "frambuesa" : {
+    "name" : "Frambuesa",
+    "content": "Las frambuesas se consideran una fruta rica en fibra, manganeso y vitamina C, una taza este fruto rojo aporta el 88% de la cantidad de vitamina que nuestro organismo necesita.",
+    "VTP": "371,903",
+    "LN": 1,
+    "participacion" : [
+        {
+          "year": 2014,
+          "PET": "62.48%",
+          "TP": "22,261.34",
+          "LN": 1
+        },
+        {
+          "year": 2013,
+          "PET": "68.05%",
+          "TP": "20,695.65",
+          "LN": 1
+        } ,
+        {
+          "year": 2012,
+          "PET": "74.28%",
+          "TP": "12,633.88",
+          "LN": 1
+        }
+    ],
+    "municipios" : [100,116,108,82,71,4,61],
+
+    "img": "frambuesa.jpg"
+  },
+  "maiz_forrajero" : {
+    "name" : "Maíz",
+    "content": "El maíz es el cultivo más importante de México. El maíz blanco en grano se utiliza principalmente para la elaboración de las tradicionales tortillas y tamales, pero de él también pueden obtenerse aceite e insumos para la fabricación de barnices, pinturas, cauchos artificiales y jabones.",
+    "VTP": "2,028,874",
+    "LN": 1,
+    "participacion" : [
+        {
+          "year": 2014,
+          "PET": "30.53%",
+          "TP": "4,205,793.09",
+          "LN": 1
+        },
+        {
+          "year": 2013,
+          "PET": "21.75%",
+          "TP": "2,744,152.09",
+          "LN": 1
+        } ,
+        {
+          "year": 2012,
+          "PET": "21.49%",
+          "TP": "2,592,468.60",
+          "LN": 1
+        }
+    ],
+    "municipios" : [40,26,57,104,30,10,96,69,122,68,86,7,111,25,98,52,54,31,19,46,28,66,99,78,107,103,21,60,120,9,39,110,32,125,113,114,16,83,64,119,118,49,106,62,65,42,43,45,36,85,109,1,53,102,6,41,3,59,27,70,61,58,44,5,121,55,48,24,22,67,8,72,124,73,101,108,74],
+
+    "img": "maiz-forrajero.jpg"
+  },
+  "agave": {
+    "name" : "Agave",
+    "content": "Jalisco tiene la mayor superficie de hectáreas dedicadas al cultivo de agave con el 76 por ciento a nivel nacional, el cual fue catalogado como Patrimonio Cultural de la Humanidad por la UNESCO en 2006.",
+    "VTP": "8,685,385",
+    "LN": 1,
+    "participacion" : [
+        {
+          "year": 2014,
+          "PET": "73.86%",
+          "TP": "1,779,310",
+          "LN": 1
+        },
+        {
+          "year": 2013,
+          "PET": "60.17%",
+          "TP": "1,143,014.31",
+          "LN": 1
+        } ,
+        {
+          "year": 2012,
+          "PET": "71.17%",
+          "TP": "1,200,136.40",
+          "LN": 1
+        }
+    ],
+    "municipios" : [5,11,14,41,13,69,79,112,37,98,50,73,6,90,7,123,102,93,68,3,89,116,67,35,36,97,1,46,55,109,84,70,58,64,34,30,47,111,92,9,65,62,115,108,49,63,94,24,2,72,27,82,100,124,91,80,103,122,22,105,28,10,12,25,45,119,78],
+
+    "img": "agave.jpg"
+  },
+  "lima": {
+    "name" : "Lima",
+    "content": "La lima es el fruto del árbol conocido como limero, misma que se le han atribuido varias propiedades curativas. Lo que sí es un hecho es su alto contenido de vitamina C, además de varios minerales esenciales para la salud, como magnesio, potasio y antioxidantes. Jalisco se coloca como el principal productor de lima en México, con una producción de 12 mil toneladas cada año.",
+    "VTP": "27,518",
+    "LN": 1,
+    "participacion" : [
+        {
+          "year": 2014,
+          "PET": "64.14%",
+          "TP": "11,430.46",
+          "LN": 1
+        },
+        {
+          "year": 2013,
+          "PET": "69.28%",
+          "TP": "12,556.55",
+          "LN": 1
+        } ,
+        {
+          "year": 2012,
+          "PET": "75.34%",
+          "TP": "11,719.73",
+          "LN": 1
+        }
+    ],
+    "municipios" : [14,77,11,7,108,62,92,111,42,37,94,105,2,118,63,72,44,122,100,109,34,55,53],
+    "img": "lima.jpg"
+  }
+}

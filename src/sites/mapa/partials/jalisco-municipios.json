@@ -1,0 +1,505 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "nombre":"Acatic"
+    },
+    {
+      "id": 2,
+      "nombre":"Acatlán de Juárez"
+    },
+    {
+      "id": 3,
+      "nombre":"Ahualulco de Mercado"
+    },
+    {
+      "id": 4,
+      "nombre":"Amacueca"
+    },
+    {
+      "id": 5,
+      "nombre":"Amatitán"
+    },
+    {
+      "id": 6,
+        "nombre":"Ameca"
+    },
+    {
+      "id": 7,
+      "nombre":"Arandas"
+    },
+    {
+      "id": 8,
+        "nombre":"Atemajac de Brizuela"
+    },
+    {
+      "id": 9,
+      "nombre":"Atengo"
+    },
+    {
+      "id": 10,
+      "nombre":"Atenguillo"
+    },
+    {
+      "id": 11,
+      "nombre":"Atotonilco el Alto"
+    },
+    {
+      "id": 12,
+      "nombre":"Atoyac"
+    },
+    {
+      "id": 13,
+      "nombre":"Autlán de Navarro"
+    },
+    {
+      "id": 14,
+      "nombre":"Ayotlán"
+    },
+    {
+      "id": 15,
+      "nombre":"Ayutla"
+    },
+    {
+      "id": 16,
+      "nombre":"Bolaños"
+    },
+    {
+      "id": 17,
+      "nombre":"Cabo Corrientes"
+    },
+    {
+      "id": 18,
+      "nombre":"Casimiro Castillo"
+    },
+    {
+      "id": 19,
+      "nombre":"Cañadas de Obregón"
+    },
+    {
+      "id": 20,
+      "nombre":"Chapala"
+    },
+    {
+      "id": 21,
+      "nombre":"Chimaltitán"
+    },
+    {
+      "id": 22,
+      "nombre":"Chiquilistlán"
+    },
+    {
+      "id": 23,
+      "nombre":"Cihuatlán"
+    },
+    {
+      "id": 24,
+      "nombre":"Cocula"
+    },
+    {
+      "id": 25,
+      "nombre":"Colotlán"
+    },
+    {
+      "id": 26,
+      "nombre":"Encarnación de Díaz"
+    },
+    {
+      "id": 27,
+      "nombre":"Etzatlán"
+    },
+    {
+      "id": 28,
+      "nombre":"Guachinango"
+    },
+    {
+      "id": 29,
+      "nombre":"Guadalajara"
+    },
+    {
+      "id": 30,
+      "nombre":"Hostotipaquillo"
+    },
+    {
+      "id": 31,
+      "nombre":"Huejuquilla el Alto"
+    },
+    {
+      "id": 32,
+      "nombre":"Huejúcar"
+    },
+    {
+      "id": 33,
+      "nombre":"Ixtlahuacán de los Membrillos"
+    },
+    {
+      "id": 34,
+      "nombre":"Ixtlahuacán del Río"
+    },
+    {
+      "id": 35,
+      "nombre":"Juanacatlán"
+    },
+    {
+      "id": 36,
+      "nombre":"Juchitlán"
+    },
+    {
+      "id": 37,
+      "nombre":"La Barca"
+    },
+    {
+      "id": 38,
+      "nombre":"La Huerta"
+    },
+    {
+      "id": 39,
+      "nombre":"La Manzanilla de la Paz"
+    },
+    {
+      "id": 40,
+      "nombre":"Lagos de Moreno"
+    },
+    {
+      "id": 41,
+        "nombre":"Magdalena"
+    },
+    {
+      "id": 42,
+      "nombre":"Mascota"
+    },
+    {
+      "id": 43,
+      "nombre":"Mazamitla"
+    },
+    {
+      "id": 44,
+      "nombre":"Mexticacán"
+    },
+    {
+      "id": 45,
+      "nombre":"Mezquitic"
+    },
+    {
+      "id": 46,
+      "nombre":"Mixtlán"
+    },
+    {
+      "id": 47,
+      "nombre":"Ocotlán"
+    },
+    {
+      "id": 48,
+      "nombre":"Ojuelos de Jalisco"
+    },
+    {
+      "id": 49,
+      "nombre":"Pihuamo"
+    },
+    {
+      "id": 50,
+      "nombre":"Poncitlán"
+    },
+    {
+      "id": 51,
+      "nombre":"Puerto Vallarta"
+    },
+    {
+      "id": 52,
+      "nombre":"Quitupan"
+    },
+    {
+      "id": 53,
+      "nombre":"San Cristóbal de la Barranca"
+    },
+    {
+      "id": 54,
+      "nombre":"San Diego de Alejandría"
+    },
+    {
+      "id": 55,
+      "nombre":"San Gabriel"
+    },
+    {
+      "id": 56,
+      "nombre":"San Ignacio Cerro Gordo"
+    },
+    {
+      "id": 57,
+      "nombre":"San Juan de los Lagos"
+    },
+    {
+      "id": 58,
+      "nombre":"San Juanito de Escobedo",
+      "alias": "Antonio Escobedo"
+    },
+    {
+      "id": 59,
+      "nombre":"San Julián"
+    },
+    {
+      "id": 60,
+      "nombre":"Tamazula de Gordiano"
+    },
+    {
+      "id": 61,
+      "nombre":"Tapalpa"
+    },
+    {
+      "id": 62,
+      "nombre":"Tecalitlán"
+    },
+    {
+      "id": 63,
+      "nombre":"Techaluta de Montenegro"
+    },
+    {
+      "id": 64,
+      "nombre":"Tecolotlán"
+    },
+    {
+      "id": 65,
+      "nombre":"Tenamaxtlán"
+    },
+    {
+      "id": 66,
+      "nombre":"Teocaltiche"
+    },
+    {
+      "id": 67,
+      "nombre":"Teocuitatlán de Corona"
+    },
+    {
+      "id": 68,
+      "nombre":"Tepatitlán de Morelos"
+    },
+    {
+      "id": 69,
+      "nombre":"Tequila"
+    },
+    {
+      "id": 70,
+      "nombre":"Teuchitlán"
+    },
+    {
+      "id": 71,
+      "nombre":"Tizapán el Alto"
+    },
+    {
+      "id": 72,
+      "nombre":"Tlajomulco de Zúñiga"
+    },
+    {
+      "id": 73,
+      "nombre":"Tolimán"
+    },
+    {
+      "id": 74,
+      "nombre":"Tomatlán"
+    },
+    {
+      "id": 75,
+      "nombre":"Tonalá"
+    },
+    {
+      "id": 76,
+      "nombre":"Tonaya"
+    },
+    {
+      "id": 77,
+      "nombre":"Tonila"
+    },
+    {
+      "id": 78,
+      "nombre":"Totatiche"
+    },
+    {
+      "id": 79,
+      "nombre":"Tototlán"
+    },
+    {
+      "id": 80,
+      "nombre":"Tuxcacuesco"
+    },
+    {
+      "id": 81,
+      "nombre":"Tuxcueca"
+    },
+    {
+      "id": 82,
+      "nombre":"Tuxpan"
+    },
+    {
+      "id": 83,
+      "nombre":"Unión de San Antonio"
+    },
+    {
+      "id": 84,
+      "nombre":"Unión de Tula"
+    },
+    {
+      "id": 85,
+      "nombre":"Valle de Guadalupe"
+    },
+    {
+      "id": 86,
+      "nombre":"Concepción de Buenos Aires"
+    },
+    {
+      "id": 87,
+      "nombre":"Cuautitlán de García Barragán"
+    },
+    {
+      "id": 88,
+      "nombre":"Cuautla"
+    },
+    {
+      "id": 89,
+      "nombre":"Cuquío"
+    },
+    {
+      "id": 90,
+      "nombre":"Degollado"
+    },
+    {
+      "id": 91,
+      "nombre":"Ejutla"
+    },
+    {
+      "id": 92,
+      "nombre":"El Arenal"
+    },
+    {
+      "id": 93,
+      "nombre":"El Grullo"
+    },
+    {
+      "id": 94,
+      "nombre":"El Limón"
+    },
+    {
+      "id": 95,
+      "nombre":"El Salto"
+    },
+    {
+      "id": 96,
+      "nombre":"Jalostotitlán"
+    },
+    {
+      "id": 97,
+      "nombre":"Jamay"
+    },
+    {
+      "id": 98,
+      "nombre":"Jesús María"
+    },
+    {
+      "id": 99,
+      "nombre":"Jilotlán de los Dolores"
+    },
+    {
+      "id": 100,
+      "nombre":"Jocotepec"
+    },
+    {
+      "id": 101,
+      "nombre":"San Marcos"
+    },
+    {
+      "id": 102,
+      "nombre":"San Martín Hidalgo"
+    },
+    {
+      "id": 103,
+      "nombre":"San Martán de Bolaños"
+    },
+    {
+      "id": 104,
+      "nombre":"San Miguel el Alto"
+    },
+    {
+      "id": 105,
+      "nombre":"San Sebastián del Oeste"
+    },
+    {
+      "id": 106,
+      "nombre":"Santa María de los Ángeles"
+    },
+    {
+      "id": 107,
+      "nombre":"Santa María del Oro"
+    },
+    {
+      "id": 108,
+      "nombre":"Sayula"
+    },
+    {
+      "id": 109,
+      "nombre":"Tala"
+    },
+    {
+      "id": 110,
+      "nombre":"Talpa de Allende"
+    },
+    {
+      "id": 111,
+      "nombre":"Zapotlán el Grande"
+    },
+    {
+      "id": 112,
+      "nombre":"Zapotlán del Rey"
+    },
+    {
+      "id": 113,
+      "nombre":"Zapotlanejo"
+    },
+    {
+      "id": 114,
+      "nombre":"Valle de Juárez"
+    },
+    {
+      "id": 115,
+      "nombre":"Zapotitlán de Vadillo"
+    },
+    {
+      "id": 116,
+      "nombre":"Zapotiltic"
+    },
+    {
+      "id": 117,
+      "nombre":"Villa Corona"
+    },
+    {
+      "id": 118,
+      "nombre":"Zapopan"
+    },
+    {
+      "id": 119,
+      "nombre":"Villa Guerrero"
+    },
+    {
+      "id": 120,
+      "nombre":"Villa Hidalgo"
+    },
+    {
+      "id": 121,
+      "nombre":"Villa Purificación"
+    },
+    {
+      "id": 122,
+      "nombre":"Yahualica de González Gallo"
+    },
+    {
+      "id": 123,
+      "nombre":"Zacoalco de Torres"
+    },
+    {
+      "id": 124,
+      "nombre":"Gómez Farías"
+    },
+    {
+      "id": 125,
+      "nombre": "San Pedro Tlaquepaque"
+    }
+  ]
+}

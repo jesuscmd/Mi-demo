@@ -1,0 +1,1093 @@
+@import "compass";
+@import "fonts";
+//OVER WRITE BOOTSTRAP VARIABLES
+// Import Bootstrap Compass integration
+@import "bootstrap-compass";
+// Import Bootstrap for Sass
+//rewrite vars
+@import "breakpoint";
+@import "vars";
+@import "bootstrap";
+@import "mixin";
+@import "customBreakpoints";
+
+/*=========================================
+=            Estilos generales            =
+=========================================*/
+
+//general
+html{
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+section{
+  position: relative;
+}
+p{
+  font-family: 'futura_bkbook';
+}
+#contacto p,
+label,
+.btn{
+  font-weight: lighter;
+}
+textarea,
+input,
+label {
+  @include single-transition( all, 0.6s, ease-in-out );
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+}
+
+.icon-phone:before { content: '\e800'; } /* '' */
+.icon-mail:before { content: '\e801'; } /* '' */
+
+.logoMenu{
+  max-width: 94px;
+  margin: 50px auto 0 auto;
+  display: block;
+}
+
+#mainMenu{
+  position: fixed;
+  left: 30px;
+  top: 56px;
+  z-index: 4;
+  object{
+    width: 50px;
+    height: 30px;
+  }
+  svg {
+    width: 48px;
+    height: 35px;
+  }
+  @include transition(all .2s, .8s);
+  @include breakpoint(max-width $screen-sm-max) {
+    top: 40px;
+    left: 15px;
+    svg{
+      width: 35px;
+    }
+  }
+}
+#languajeSwitch {
+  z-index: 4;
+  top: 56px;
+  padding: 6px 19px 1px;
+  font-size: 18px;
+  background-color: transparent;
+  @extend %transicionHover;
+  @include breakpoint(max-width $screen-sm-max) {
+    top: 40px;
+    right: 15px;
+    font-size: 14px;
+    padding: 3px 10px 1px;
+  }
+}
+#topScroller{
+  font-size: 24px;
+  text-align: center;
+  bottom:24px;
+  height: 50px;
+  width:50px;
+  z-index: 3;
+  opacity: 0;
+  @extend %transicionHover;
+  @include breakpoint(max-width $screen-sm-max) {
+    bottom: 15px;
+    right: 15px;
+    font-size: 14px;
+    width: 35px;
+    height: 35px;
+  }
+  object, img{
+    width:16px;
+    margin: 4px auto 0px;
+    display: block;
+  }
+  &.cd-is-visible{
+    opacity: 1;
+  }
+  &.cd-is-visible, &.cd-fade-out, &.no-touch:hover {
+    @include templateAnimation( 0.3s, 'opacity, visibility');
+  }
+  &.cd-is-visible {
+    visibility: visible;
+    opacity: 1;
+  }
+  &.cd-fade-out {
+    opacity: .5;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+#loading-mask {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #575c5c;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+a {
+  //font-size: 13px;
+  color: white;
+  cursor: pointer;
+  &:hover,&:focus{
+    color: white;
+    text-decoration: none!important;
+    outline: none;
+  }
+}
+/*======================================
+=            titulo animado            =
+======================================*/
+//titulo animado
+.card-container{
+  .content {
+    position: relative;
+  }
+  h2{
+    margin: 0;
+    color: transparent;
+    @include templateAnimation( 0.73s, color, 0, 'easeInExpo');
+  }
+  .frame > div {
+    background-color: #fff;
+  }
+  .verCent {
+    >div{
+      display: table;
+      height: 122px;
+      >div{
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    .text-right {
+      position: relative;
+    }
+  }
+  // @include breakpoint($max-screen-sm){
+  //   padding:0 25px;
+  // }
+  @include breakpoint($max-screen-st) {
+    .verCent > div {
+      height: 90px;
+    }
+    h2{
+      font-size: 30px;
+    }
+  };
+  @include breakpoint($max-screen-bp) {
+    h2{
+      font-size: 25px;
+    }
+  };
+  @include breakpoint($max-screen-xs) {
+    //padding:0 10px;
+    .verCent > div {
+      height: 56px;
+    }
+    h2 {
+      font-size: 19px;
+    }
+  }
+}
+.border{
+  position: absolute;
+  right: -17px;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  div{
+    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    transition-delay: .25s;
+    -webkit-transition-delay: .25s;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    background: #fff;
+    @include single-transition( all, 0.73s, ease-in-out , 0s );
+  }
+}
+.frame {
+  position: absolute;
+  > div {
+    overflow: hidden;
+    position: absolute;
+    background: #fff;
+    @include single-transition( all, 0.73s, ease-in-out , 0s );
+  }
+  &.top {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    > div {
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 100%;
+    }
+  }
+  &.right {
+    right: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    > div {
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 0;
+    }
+  }
+  &.bottom {
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    > div {
+      right: 0;
+      top: 0;
+      width: 0;
+      height: 100%;
+    }
+  }
+  &.left {
+    left: 0;
+    bottom: 0;
+    width: 2px;
+    height: 100%;
+    > div {
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 0;
+    }
+  }
+}
+.loaded {
+  h2{
+    color:#fff;
+  }
+  h2.naranja {
+    color: $naranja;
+  }
+  .card-container > div {
+    width: 100%;
+    position: relative;
+  }
+  & .border > div,
+  & .frame > div {
+    width: 100%;
+    height: 100%;
+  }
+}
+/*===============================
+=            squares            =
+===============================*/
+.square{
+  background-color: $naranja;
+  display: block;
+  &.tiny{
+    width: $squareTiny;
+    height: $squareTiny;
+  }
+  &.smaller{
+    width: $squareSmaller;
+    height: $squareSmaller;
+  }
+  &.small{
+    width: $squareSmall;
+    height: $squareSmall;
+  }
+  &.normal{
+    width: $squareNormal;
+    height: $squareNormal;
+  }
+  &.semiBig{
+    width: $squareSemiBig;
+    height: $squareSemiBig;
+  }
+  &.big{
+    width: $squareBig;
+    height: $squareBig;
+  }
+  &.bordered{
+    background-color: transparent;
+    border:3px solid $naranja;
+    @include box-sizing(border-box);
+  }
+  &.outer{
+    @include box-sizing(content-box);
+  }
+}
+/*==============================
+=            Inicio            =
+==============================*/
+#inicio{
+  .container, 
+  .container > .row, 
+  .iniciowrapper,
+  .menuIntroCont {
+    height: 100%;
+  }
+  @include breakpoint($max-screen-sm) {
+    .iniciowrapper{
+      padding: 0 10%;
+    }
+  }
+  $inicioDelay : 0;
+  #homepage{
+    margin-top: 40%;
+  }
+  .menuIntroBack{
+    width: 100%;
+    height: 0;
+    background-color:#ff9100;
+    background-color: rgba(255, 145, 0, 0.8);
+    @include single-transition(all, 0.7s, ease ,#{$inicioDelay}s);
+  }
+  .logoContainer{
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.2);
+    margin-top: -100%;
+    height: 100%;
+    $inicioDelay : $inicioDelay + .4;
+    @include single-transition(all,0.75s, ease-in-out, #{$inicioDelay}s);
+    object{
+      max-width: 94px;
+      margin: 50px auto 0 auto;
+      display: block;
+      margin-bottom: 20px;
+      opacity: 0;
+      $inicioDelay : $inicioDelay + .75;
+      @include single-transition(all, 0.75s, ease-in-out, #{$inicioDelay}s);
+      @include breakpoint(max-width $screen-sm-max) {
+        max-width: 74px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+  $inicioDelay : $inicioDelay + .5;
+  .card-container .frame > div {
+    @include transition-delay(#{$inicioDelay}s);
+  }
+  $inicioDelay : $inicioDelay + .75;
+  h2{
+    @include single-transition( all, 0.73s, ease-in-out , #{$inicioDelay}s);
+  }
+  $inicioDelay : $inicioDelay + 0.1;
+  .border > div{
+    @include transition-delay(#{$inicioDelay}s);
+  }
+  .triScroll{ 
+    margin: 40px auto 0;
+    height: 21px;
+    width: 35px;
+    position: relative; 
+  }
+  .triScrollObject{
+    display: block;
+    max-width: 35px;
+    position: absolute;
+    bottom: -50px;
+    opacity: 0;
+    //$inicioDelay : $inicioDelay + .85;
+    @include single-transition( all, 0.55s , ease-in-out , #{$inicioDelay}s);
+  }
+  .loaded {
+    .menuIntroBack {
+      height: 75%;
+    }
+    .logoContainer {
+      margin-top: 0%;
+      object {
+        opacity: 1;
+      }
+    }
+    h2 {
+      color:#fff;
+    }
+    .triScrollObject{
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+}
+#ourgrukology .naranja,
+.naranja{
+  color: $naranja;
+}
+.separador{
+  background-color: #fff;
+  width: 100%;
+  height: 2px;
+}
+.separadorNaranaja {
+  @extend .separador;
+  background-color: $naranja; 
+}
+
+/* animacion inicio
+--------------------------------------------------------------------------------------- */
+// .card-container > div > div .frame {
+//   position: absolute;
+// }
+// .card-container > div > div .frame > div,
+// .border > div {
+//   -webkit-transition-duration: 0.75s;
+//   -webkit-transition-property: width,height;
+//   -webkit-transition-timing-function: 'ease-in-out';
+//   transition-duration: 0.75s;
+//   transition-property: width,height;
+//   transition-timing-function: 'ease-in-out';
+//   overflow: hidden;
+//   position: absolute;
+//   background: #fff;
+// }
+// .card-container > div > div .frame.top {
+//   left: 0;
+//   top: 0;
+//   width: 100%;
+//   height: 2px;
+// }
+// .card-container > div > div .frame.top > div {
+//   left: 0;
+//   top: 0;
+//   width: 0;
+//   height: 100%;
+// }
+// .card-container > div > div .frame.right {
+//   right: 0;
+//   top: 0;
+//   width: 2px;
+//   height: 100%;
+// }
+// .card-container > div > div .frame.right > div {
+//   left: 0;
+//   top: 0;
+//   width: 100%;
+//   height: 0;
+// }
+// .card-container > div > div .frame.bottom {
+//   right: 0;
+//   bottom: 0;
+//   width: 100%;
+//   height: 2px;
+// }
+// .card-container > div > div .frame.bottom > div {
+//   right: 0;
+//   top: 0;
+//   width: 0;
+//   height: 100%;
+// }
+// .card-container > div > div .frame.left {
+//   left: 0;
+//   bottom: 0;
+//   width: 2px;
+//   height: 100%;
+// }
+// .card-container > div > div .frame.left > div {
+//   left: 0;
+//   bottom: 0;
+//   width: 100%;
+//   height: 0;
+// }
+// .card-container > div > div .content {
+//   position: relative;
+// }
+
+
+
+.test{
+  //position: absolute;
+  // right: 40px;
+  // bottom: 50px;
+  @include breakpoint(max-width $screen-sm-max) {
+  }
+}
+
+/*formas*/
+.sustrato{
+  background: #fff;
+  width: 100%;
+  text-align: center;
+  color: #4a4a4a;
+  padding: 8px 0 5px;
+  font-size: 25px;
+}
+.form-group {
+  margin-bottom: 5px;
+}
+.form-control{
+  font-family: 'futura_bkbook';
+  color: #4a4a4a;
+  border-radius: 0;
+  border: none; 
+  height: 24px;
+}
+#iSolicitaTel,
+input[type="number"]{
+  padding:0 12px; 
+}
+.form-horizontal .control-label{
+  font-size: 21px;
+  text-align: left;
+  padding-top: 0;
+  margin: 0;
+  line-height: 24px;
+}
+.btn{
+  border-radius: 0;
+  border: none; 
+  background: #ff7200;
+  font-size: 16px;
+  color: #fff;
+  padding: 6px 12px 4px;
+  line-height: 1;
+  @include transition(all 0.3s ease-in-out);
+}
+.btn:hover{
+  background-color: #4a4a4a;
+  color: #fff;
+}
+.noRight{
+  padding-right: 5px;
+}
+.noLeft{
+  padding-left: 0;
+}
+
+/*MENU*/
+.menuOver{
+  width: 100%;
+  background-color: rgba( $naranja, .9 );
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  display: none;
+  .container{
+    opacity: 0;
+  }
+  ul{
+    padding: 5% 0 0 0;
+    text-align: center;
+    li{
+      list-style: none;
+    }
+  }
+  a{
+    width: 100%;
+    font: 16px 'futura_bkbook';
+    display: inline-block;
+    padding: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, .5);
+    &:hover .separador {
+      background-color:#fff;
+    }
+  }
+  .separador{
+    max-width: 34px;
+    margin:0 auto;
+    display: block;
+    background-color: transparent;
+    @include transition(all .25s);
+  }
+  .top{
+    margin-bottom: 3px;
+  }
+  .bottom{
+    margin-top: 3px;
+  }
+}
+/*ESTRUCTUTA*/
+#imagenBack {
+  @include backgroundImage('backHome', 'fixed'); 
+  position: fixed;
+  width: 100%;
+}
+#archemy{
+  @include backgroundImage('backAlchemy');
+  overflow: hidden;
+  .container {
+    position: relative;
+  }
+  .card-container{
+    margin-top: 65px;
+    > div {
+      position: relative;
+      .loaded & {
+        width: 100%;
+      }
+    }
+  }
+  .alquimia{
+    margin-top: 135px;
+    position: relative;
+    z-index: 1;
+  }
+  .loaded .frame > div{
+    width: 100%;
+    height: 100%;
+  }
+  .alquimia h2 {
+    display: block;
+    height: 40px;
+    clear: both;
+    span {
+      @include transition-property(all);
+      @include transition-duration(.45s);
+      display: block;
+      height: 38px;
+      overflow: hidden;
+      float: left;
+      padding-top: 1em;
+    }
+    @for $i from 1 through 30 {
+      span:nth-child(#{$i}){
+        @include transition-delay(($i*.03+s));
+      }
+    }
+  }
+  .alquimia h2.loaded{
+    span{
+      padding-top: 0;
+    }
+    
+  }
+}
+#backPortrai{
+  @include backgroundImage('portrait'); 
+}
+#imgSocios{
+  bottom: 0;
+  right: 30%;
+  position: absolute;
+  max-width: 556px;
+}
+#quehacemos{
+  background-color: #353535;
+  .boxTitleContainer{
+    margin-top: 80px;
+  }
+  .explain{
+    margin-top: 72px;
+    h2{
+      border-bottom: 2px solid $naranja;
+      display: inline-block;
+      padding-bottom: 10px;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+    p{
+      margin-top: 58px;
+    }
+  }
+  .generaremosWrapper {
+    display: table;
+    height: 106px;
+  }
+  .generaremos{
+    font-size: 28px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .square1{
+    top: 26px;
+    left: -26px;
+  }
+  .semiWrapper{
+    margin: 80px 0 50px;
+    position: relative;
+  }
+  .borderNanja{
+    border: 2px solid #ff7200;
+    display: inline-block;
+    height: 106px;
+    width: 30px;
+  }
+  .borderNanja.left{
+    border-right: none;
+  }
+  .borderNanja.right{
+    border-left: none;
+    float: right;
+  }
+  .sq1, .sq2, .square{
+    position: absolute;
+  }
+  .sq1{
+    right: -95px;
+    bottom: -96px;
+    height: 74px;
+    width: 108px;
+  }
+  .square.big{
+    left: 0;
+  }
+  .square.normal{
+    right: 18px;
+    top: 46px;
+  }
+  .square.small{
+    right: 0;
+    top: 12px;
+  }
+  .sq2{
+    width: 35px;
+    height: 40px;
+    right: -35px;
+    top: 0;
+  }
+  .square5{
+    bottom: 0;
+    left: 0;
+  }
+  .square6{
+    top: 0;
+    right: 0;
+  }
+}
+
+.imgArchemyFigure object{
+  mix-blend-mode: luminosity;
+  width: 140%;
+  height: 140%;
+  margin-left: -20%;
+  
+}
+#infography{
+  background-color: $naranja;
+  position: relative;
+    overflow: hidden;
+  .triangleInfo{
+    width: 64px;
+    margin: 0 auto;
+    display: block;
+  }
+  .fullLines{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    &.bottom{
+      bottom: 0;
+      height: 24px;
+    }
+    .fullLine{
+      height: 2px;
+      width: 100%;
+      background-color: #fff;
+      position: absolute;
+      &.topUpper{
+        top: 5px;
+      }
+      &.topBottom{
+        top: 24px;
+      }
+      &.bottomUpper{
+        top: 0;
+      }
+      &.bottomBottom{
+        bottom: 12px;
+      }
+    }
+    .separator{
+      background-color: $naranja;
+      display: block;
+      height: 7px;
+      position: relative;
+      &.topUpper{
+        margin: 1px auto 0;
+        width: 96px;
+      }
+      &.topBottom{
+        margin: 14px auto 0;
+        width: 50%;
+      }
+      &.bottomUpper{
+        margin: 0 auto 0;
+        width: 60%;
+      }
+      &.bottomBottom{
+        margin: 0 auto 0;
+        width: 70%;
+      }
+    }
+    &.infoLine{
+      height: 3px;
+      background-color: #fff;
+      position: relative;
+      width: initial;
+    }
+  }
+  .content1 .infoLine {
+      margin-left:50%;
+  }
+  .content4 .infoLine {
+    margin-right: 50%;
+  }
+  .infoLineContainer {
+    position: absolute;
+    top: 41%;
+    width: 100%;
+  }
+  .sliderInfography{
+    margin: 25px 0 0;
+  }
+  .infoTitle {
+    height: 80px;
+    display: table;
+    width: 100%;
+    position: relative;
+    h4 {
+      font-size: 21px;
+      font-weight: lighter;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+  .infoImg {
+    position: relative;
+    object {
+      max-width: 102px;
+      margin:0 auto;
+      display: block;
+      background-color: $naranja;
+    }
+
+  }
+  .infoExplain {
+    width:100%;
+    position: relative;
+    height: 160px;
+    display: inline-table;
+    vertical-align: middle;
+    p{
+      display: table-cell;
+      vertical-align: middle;
+    } 
+  }
+}
+.coverLine {
+  width: 50%;
+  height: 310px;
+  position: absolute;
+  top: 5px;
+  background-color: $naranja;
+  .content1 &{
+    left: 0;
+  }
+  .content4 &{
+    right: 0;
+  }
+}
+
+#ourgrukology{
+  background-color: #f0f0ee;
+  overflow: hidden;
+  
+  p{
+    color: #6e6e6e;
+    margin-top: 60px;
+  }
+  .gris{
+    color: $gris95;
+  }
+  h2.gris, h2.buscamos {
+    font-size: 30px;
+    margin-top: 0;
+  } 
+  h2.buscamos{
+    margin-bottom: 0;
+  }
+  h3.gris{
+    margin-top: 15px;
+  } 
+  .card-container {
+    h2{
+      font-size: 38px;
+      margin: 0;
+      line-height: 1;
+      padding: 17px 0 7px;
+    }
+    .frame > div {
+      background-color: $gris95;
+    }
+  }
+  .secondExplain{
+    margin-top: 130px;
+    position: relative;
+  }
+  .secondExplain .col-md-1{
+    position: absolute;
+    height: 95%;
+    left: -55px;
+    border-right: 3px solid $gris95;
+  }
+  .secondExplain .square{
+    position: absolute;
+    right: 55px;
+    top: 22px;
+  }
+}
+.mainOur{
+  margin-top: 86px;
+  z-index: 2;
+  position: relative;
+}
+
+#imageLiquid{
+  width: 100%;
+  z-index: 1;
+  top: -270px;
+  position: relative;
+}
+#contacto p{
+  font-size: 21px;
+  line-height: 24px;
+  font-family: bebas;
+}
+.okArrow{
+  max-height: 2em;
+}
+#contact_results{
+  display: none;
+}
+#contact_results h4{
+  margin-top: 0;
+}
+
+//formas
+h4.error,
+.has-error .form-control {
+  color: $brand-danger;
+}
+
+.formaSolicita{
+  margin-bottom: 60px;
+}
+.direccion{
+  margin-bottom: 20px;
+}
+.icon{
+  margin-right: 10px;
+  &.telefono{
+    font-size: 20px;
+  }
+  &.mail{
+    font-size: 21px;
+  }
+}
+#backPortrai h3{
+  margin-top: 40px;
+  .carreras{
+    margin-top: 110px;
+  }
+}
+.formaCarreras{
+  margin-bottom: 70px;
+  h4{
+    margin:12px 0 16px;
+    line-height: 27px;
+  }
+}
+.customUpload{
+  display: block;
+  margin-bottom: 0;
+  input{
+    display: none;
+  }
+}
+#progress {
+  @extend .progress;
+  height: 5px;
+  border-radius: 0;
+  margin: 5px 0 0;
+  opacity: 0;
+}
+#files h4 {
+  margin: 0;
+}
+.progress-bar {
+  @extend .progress-bar;
+  background-color: $naranja;
+}
+.overlay{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  mix-blend-mode: multiply;
+}
+#contacto .overlay{
+  background: rgba(255, 150, 0, .8);
+}
+#logoContacto {
+  width: 115px;
+  margin: 0 auto;
+  display: block;
+  padding: 55px 0 40px;
+}
+#carreras .overlay{
+  background: rgba(213, 50, 0, .8);
+}
+#glog .overlay{
+  background: rgba(118, 0, 147, .8);
+}
+/*GLOG*/
+.glog{
+  text-align: center;
+  margin: 112px 0;
+  font-weight: bold;
+}
+//override slider 
+
+.slick-prev {
+  left: 35px;
+}
+.slick-next {
+  right: 35px;
+}
+.slick-prev, .slick-next {
+  top: 78%;
+}
+
+//mediaqueries
+@include breakpoint($small-desk) {
+  // .container{
+  //   color: red;
+  // }
+  .boxTitleContainer{
+    width: 75%;
+  }
+
+}
+ 
+@import "responsiveLayout";
+

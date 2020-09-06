@@ -1,0 +1,308 @@
+@include breakpoint($max-screen-lg) {
+	#quehacemos .explain {
+		float: right;
+	}
+}
+@include breakpoint($max-screen-md) {//991px
+	.mainOur {
+		margin-top: 30px;
+	}
+	#quehacemos .explain p {
+		margin-top: 28px;
+	}
+	#ourgrukology p {
+		margin-top: 40px;
+	}
+	#ourgrukology h2.gris, #ourgrukology h2.buscamos {
+		font-size: 28px;
+	}
+	#ourgrukology .secondExplain {
+	  margin-top: 120px;
+	}
+
+	#logoContacto {
+		width: 75px;
+		padding: 42px 0 22px;
+	}
+	#contacto .separador {
+		height: 2px;
+	}
+	.formaSolicita {
+		margin: 30px 0 40px;
+		.sustrato {
+			margin-top: 0;
+		}
+	}
+	.formaCarreras{
+		margin: 50px 0;
+	}
+
+	.direccion {
+	  margin-top: 30px;
+	}
+	// .boxTitleContainer {
+	// 	padding: 0 40px; 
+	// }
+	
+}
+@include breakpoint($max-screen-sm) {//767px
+	
+	.container{
+		padding: 0 50px;
+	}
+	#homepage {
+		margin-left: 15px;
+  		margin-right: 15px;
+	}
+	#infography .container {
+		padding: 0;
+	}
+	.imgArchemyFigureContainer {
+		position: absolute;
+		top: 280%;
+		left: -35px;
+		width: 70%;
+		padding: 0;
+	}
+	#archemy .alquimia {
+	  margin-top: 40px;
+	}
+	// #infography .infoExplain,
+	// #infography .infoExplain p {
+	// 	display: block;
+	// }
+	#quehacemos .boxTitleContainer {
+		margin-top: 30px;
+	}
+	#quehacemos .boxTitleContainer {
+		margin-top: 30px;
+	}
+	#ourgrukology .card-container h2 {
+		font-size: 25px;
+	}
+	#ourgrukology h2.gris {
+		margin-top: 25px;
+	}
+	#ourgrukology .secondExplain {
+		margin-top: 20px;
+	}
+	#ourgrukology h2.buscamos {
+		margin-left: 20px;
+	}
+	#ourgrukology .secondExplain .col-md-1 {
+		left: -15px;
+		border-width: 2px;
+	}
+	#ourgrukology .secondExplain .square {
+		right: 10px;
+	}
+	// .borderNanja {
+	// 	position: absolute;
+	// }
+	// .semiWrapper .borderNanjaContainer {
+	// 	position: absolute;
+	// }
+	// .borderNanjaContainer.left {
+	// 	left: 0;
+	// }
+	// .borderNanjaContainer.right {
+	// 	right: 0;
+	// }
+	
+}
+// @include breakpoint($range-sm-st ) {//max 991px min 672px
+// 	.boxTitleContainer {
+// 		padding: 0 40px; 
+// 	}
+// }
+
+// $max-screen-ss { //604px
+
+// }
+
+@include breakpoint($max-screen-xs) {//480px
+
+	.square{
+	  // background-color: $naranja;
+	  // display: block;
+	  // &.tiny{
+	  //   width: $squareTiny;
+	  //   height: $squareTiny;
+	  // }
+	  // &.smaller{
+	  //   width: $squareSmaller;
+	  //   height: $squareSmaller;
+	  // }
+	  // &.small{
+	  //   width: $squareSmall;
+	  //   height: $squareSmall;
+	  // }
+	  // &.normal{
+	  //   width: $squareNormal;
+	  //   height: $squareNormal;
+	  // }
+	  // &.semiBig{
+	  //   width: $squareSemiBig;
+	  //   height: $squareSemiBig;
+	  // }
+	  // &.big{
+	  //   width: $squareBig;
+	  //   height: $squareBig;
+	  // }
+	  &.bordered{
+	  	border-width: 1px;
+	    //background-color: transparent;
+	    //border:3px solid $naranja;
+	    //@include box-sizing(border-box);
+	  }
+	  // &.outer{
+	  //   @include box-sizing(content-box);
+	  // }
+	}
+
+	h2 {
+		font-size: 21px;
+		margin-bottom: 6px;
+	}
+	h3{
+		font-size: 13px;
+		margin-top: 10px;
+	}
+	h4 {
+		font-size: 17px;
+	}
+	p {
+		font-size: 12px;
+	}
+	#homepage {
+		margin-left: 15px;
+  		margin-right: 15px;
+	}
+	#imgSocios {
+	  width: 100%;
+	  left: 50px;
+	}
+	#infography .infoLineContainer {
+		top: 39%;
+	}
+
+	.slick-prev {
+	  left: 85px;
+	}
+	.slick-next {
+	  right: 85px;
+	}
+	#quehacemos .semiWrapper {
+		margin: 40px 0 50px;
+	}
+	.semiWrapper .col-xs-10 {
+		padding: 0;
+		width: 100%; 
+	}
+	#quehacemos .borderNanja {
+		width: 15px;
+		height: 60px;
+	}
+	#quehacemos .generaremosWrapper {
+		height: 60px;
+	}
+	.borderNanjaContainer {
+		position: absolute;
+
+		&.left {
+			left: -38px;
+			
+		}
+		&.right {
+			right: -38px;
+			
+		}
+	}
+
+	#quehacemos .explain h2 { 
+		//font-size: 20px;
+	}
+	#quehacemos h3.generaremos {
+		font-size: 15px;
+	}
+	.separador{
+		height: 1px;	 
+	}
+	.sustrato{
+		margin-bottom: 12px;
+	}
+	#ourgrukology p{
+		margin-top: 10px;
+	}
+	#archemy p,
+	#ourgrukology p,
+	#quehacemos p {
+		font-size: 12px;
+	}
+	#ourgrukology h2.buscamos {
+		margin-left: 10px;
+	}
+	#archemy .alquimia h2 {
+		margin-bottom: 0;
+	}
+	#imageLiquid {
+		top: -20px;
+	}
+	#contacto p {
+		font-size: 15px;
+		line-height: 18px;
+		margin-bottom: 0px;
+		i {
+			font-size: 12px;
+		}
+	}
+	.form-horizontal .control-label {
+		font-size: 15px;
+	}
+	.form-control{
+		font-size: 13px;
+	}
+	.formaSolicita {
+		margin-bottom: 40px;
+	}
+	.formaCarreras h4 {
+		line-height: 20px;
+	}
+	.glog {
+		font-size: 68px;
+		margin: 73px 0;
+		.arrowGo{
+			height: 48px;
+		}
+	}
+	
+}
+@include breakpoint($max-screen-ms) {//330px
+	.container {
+	  padding: 0px 15px;
+	}
+	#inicio .iniciowrapper {
+	  padding: 0;
+	}
+	.glog {
+		font-size: 60px;
+		.arrowGo{
+			height: 42px;
+		}
+	}
+	#inicio .loaded .menuIntroBack {
+	  height: 100%;
+	}
+	.slick-prev {
+	  left: 35px;
+	}
+	.slick-next {
+	  right: 35px;
+	}
+	#imgSocios {
+	  left: 15px;
+	}
+}
+
+
+

@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="es"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui, maximum-scale=1">
+  <script src="js/topscript.min.js"></script>
+
+  <title>OCTA-PLUS Análisis de combustibles</title>
+  <meta name="application-name" content="OCTA-PLUS"/>
+  <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="img/favicon/favicon-194x194.png" sizes="194x194">
+  <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="img/favicon/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="img/favicon/manifest.json">
+  <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="img/favicon/mstile-144x144.png">
+  <meta name="msapplication-square70x70logo" content="img/favicon/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="img/favicon/mstile-150x150.png" />
+  <meta name="msapplication-wide310x150logo" content="img/favicon/mstile-310x150.png" />
+  <meta name="msapplication-square310x310logo" content="img/favicon/mstile-310x310.png" />
+  <meta name="theme-color" content="#000000">
+
+  <meta name="description" content="Laboratorio mexicano especializado en realizar  el análisis  de calidad en los combustibles.">
+  <link rel="stylesheet" href="css/main.min.css">
+
+</head>
+<body ng-app="app" ng-controller="Main" data-ng-init="init()">
+  <section class="loader">
+    <div class="loader-wrapper active">
+      <div class="loader-mask">
+        <svg ng-if="!mascaraHD" version="1.1" id="loader-mask" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
+          <path id="loader-mask-svg" d="M1920,0H0v1080h1920V0z M960,589.9l-35.3-14.7L910.1,540l14.7-35.3l35.3-14.7l35.3,14.7l14.7,35.3 l-14.7,35.3L960,589.9z"/>
+        </svg>
+        <svg ng-if="mascaraHD" version="1.1" id="loader-mask-HD" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-1600 -900 5120 2880" style="enable-background:new -1600 -900 5120 2880;" xml:space="preserve">
+        	<path id="loader-mask-svg" d="M3520-900h-5120v2880h5120V-900z M960,590l-35.4-14.6L910,540l14.6-35.4L960,490l35.4,14.6L1010,540l-14.6,35.4L960,590z"/>
+        </svg>
+      </div>
+      <div class="loader-icon">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+          <polygon class="loader-svg-bg" points="0,50.1 14.7,85.6 50,100 85.5,85.3 100,50.3 85.3,14.8 50.2,0 14.7,14.7 "/>
+          <polygon class="loader-svg-line" points="50.2,0 14.7,14.7 0,50.1 14.7,85.6 50,100 85.5,85.3 100,50.3 85.3,14.8 "/>
+          <path class="loader-svg-gota" d="M42,20.1c0,0,5.3,12.7-3.6,22.8c-8.8,10.2-8.3,20.2-2,26.2c8.1,9,29.3,5.9,30.4-14.2C68,34.9,41.5,20,42,20.1z"/>
+          <path class="loader-svg-gota-inner" d="M44.7,23.8c0,0,4,11.6-4.5,20.2c-8.5,8.6-8.7,17.6-3.3,23.3c6.7,8.5,25.8,7,28-10.9 C67.1,38.6,44.3,23.7,44.7,23.8z"/>
+          <path class="loader-svg-gota-brillo" d="M51.6,35.1c0,0,11.8,9,8,23.7C59.6,58.9,66.5,43.8,51.6,35.1z"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+  <content class="main-wrapper">
+    <section class="menu">
+      <div class="menu-container">
+        <ul class="menu-links">
+          <li><a data-seccion="home" class="active">Home</a></li>
+          <li><a data-seccion="empresa">Empresa</a></li>
+          <li><a data-seccion="servicios">Servicios</a></li>
+          <li><a data-seccion="calidad">Calidad</a></li>
+          <li><a data-seccion="contacto">Contacto</a></li>
+        </ul>
+        <ul class="menu-lateral">
+          <li><a ng-click="abrirLightbox()">Aviso de privacidad</a></li>
+        </ul>
+      </div>
+      <div class="menu-shape">
+        <svg class="menu-shape-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        	 viewBox="0 0 214 116" style="enable-background:new 0 0 214 116;" xml:space="preserve">
+        <polygon points="0,0 0,116 214,116 197,68 "/>
+        </svg>
+        <div class="menu-icon">
+          <a class="header__btn-menu icon icon--menu js-toggle-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!--<section class="logo-section">-->
+    <div class="logo-container">
+      <div class="logo-img" ng-click="mostrarHome()">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 350" style="enable-background:new 0 0 1000 350;" xml:space="preserve">
+          <style type="text/css">
+            .st0{fill:#EF5E0B;}
+            .st1{fill:#FF7425;}
+            .st2{fill:#FFFFFF;}
+          </style>
+          <g class="letras">
+            <g>
+              <g>
+                <path d="M369.8,107.8c0-22.4,11.6-35.1,32.9-35.1c21.3,0,32.9,12.8,32.9,35.1v72.7c0,22.4-11.6,35.1-32.9,35.1
+                  c-21.3,0-32.9-12.8-32.9-35.1V107.8z M391.5,181.8c0,10,4.3,13.8,11.2,13.8c6.9,0,11.2-3.8,11.2-13.8v-75.5
+                  c0-10-4.3-13.8-11.2-13.8c-6.9,0-11.2,3.8-11.2,13.8V181.8z"/>
+                <path d="M512.3,161.9v18.6c0,22.4-11,35.1-32.3,35.1c-21.3,0-32.3-12.8-32.3-35.1v-72.7c0-22.4,11-35.1,32.3-35.1
+                  c21.3,0,32.3,12.8,32.3,35.1v13.6h-20.5v-15c0-10-4.3-13.8-11.2-13.8c-6.9,0-11.2,3.8-11.2,13.8v75.5c0,10,4.3,13.6,11.2,13.6
+                  c6.9,0,11.2-3.6,11.2-13.6v-20H512.3z"/>
+                <path d="M519.2,72.6h66.9V93h-22.6v122.6h-21.6V93h-22.6V72.6z"/>
+                <path d="M658.2,215.5h-21.8l-3.7-25.9h-26.6l-3.7,25.9h-19.9l22-143h31.7L658.2,215.5z M608.8,170.2h20.9l-10.4-72.3L608.8,170.2
+                  z"/>
+                <path d="M665.3,134.1h39.4v20h-39.4V134.1z"/>
+                <path d="M783.6,107.9v18.6c0,22.9-10.6,35.3-32.3,35.3h-10.2v53.7h-21.7v-143h31.9C773,72.6,783.6,85,783.6,107.9z M741.1,93
+                  v48.4h10.2c6.9,0,10.6-3.3,10.6-13.5v-21.4c0-10.2-3.7-13.5-10.6-13.5H741.1z"/>
+                <path d="M793.7,72.6h21.7v122.6H851v20.4h-57.3V72.6z"/>
+                <path d="M881.1,72.6v109.1c0,10.1,4.3,13.7,11.2,13.7c6.9,0,11.2-3.6,11.2-13.7V72.6H924v107.6c0,22.6-11,35.5-32.3,35.5
+                  c-21.3,0-32.3-12.9-32.3-35.5V72.6H881.1z"/>
+                <path d="M967.9,72.6c21.1,0,31.9,12.8,31.9,35.1v4.4h-20.5v-5.8c0-10-3.9-13.8-10.8-13.8c-6.9,0-10.8,3.8-10.8,13.8
+                  c0,28.7,42.3,34.1,42.3,74.1c0,22.4-11,35.1-32.3,35.1c-21.3,0-32.3-12.8-32.3-35.1v-8.6h20.5v10c0,10,4.3,13.6,11.2,13.6
+                  c6.9,0,11.2-3.6,11.2-13.6c0-28.7-42.3-34.1-42.3-74.1C936,85.4,946.9,72.6,967.9,72.6z"/>
+              </g>
+            </g>
+            <g>
+              <path d="M391.7,236.6l15.9,41.1h-6l-4.4-12.4H380l-4.5,12.4H370l15.8-41.1H391.7z M395.5,260.7l-6.8-19.2h-0.1l-6.9,19.2H395.5z"
+                />
+              <path d="M415.3,247.9v4.7h0.1c2-3.6,5.2-5.4,9.5-5.4c1.9,0,3.5,0.3,4.8,0.8c1.3,0.5,2.3,1.3,3.1,2.2c0.8,1,1.4,2.1,1.7,3.4
+                c0.3,1.3,0.5,2.8,0.5,4.4v19.6h-4.8v-20.2c0-1.8-0.5-3.3-1.6-4.4c-1.1-1.1-2.5-1.6-4.4-1.6c-1.5,0-2.8,0.2-3.8,0.7
+                c-1.1,0.5-2,1.1-2.7,2c-0.7,0.8-1.3,1.8-1.6,3c-0.4,1.1-0.5,2.4-0.5,3.7v16.8h-4.8v-29.8H415.3z"/>
+              <path d="M468.4,277.6c-0.8,0.5-2,0.7-3.5,0.7c-1.3,0-2.2-0.4-3-1.1c-0.7-0.7-1.1-1.9-1.1-3.5c-1.3,1.6-2.9,2.8-4.6,3.5
+                c-1.8,0.7-3.7,1.1-5.7,1.1c-1.3,0-2.6-0.2-3.8-0.5c-1.2-0.3-2.2-0.8-3.1-1.4s-1.6-1.5-2.1-2.6c-0.5-1.1-0.8-2.3-0.8-3.8
+                c0-1.7,0.3-3.1,0.9-4.1c0.6-1.1,1.3-1.9,2.2-2.6c0.9-0.7,2-1.2,3.2-1.5c1.2-0.3,2.4-0.6,3.7-0.9c1.3-0.3,2.6-0.5,3.8-0.6
+                c1.2-0.1,2.2-0.3,3.2-0.6c0.9-0.2,1.6-0.6,2.2-1.1s0.8-1.2,0.8-2.1c0-1.1-0.2-1.9-0.6-2.6c-0.4-0.7-0.9-1.2-1.5-1.5
+                c-0.6-0.3-1.3-0.6-2.1-0.7c-0.8-0.1-1.5-0.2-2.3-0.2c-2,0-3.8,0.4-5.1,1.2c-1.4,0.8-2.1,2.3-2.2,4.5h-4.8c0.1-1.8,0.5-3.4,1.1-4.7
+                s1.6-2.3,2.7-3.1c1.1-0.8,2.4-1.4,3.9-1.7c1.5-0.3,3-0.5,4.7-0.5c1.3,0,2.6,0.1,3.9,0.3c1.3,0.2,2.5,0.6,3.6,1.2
+                c1.1,0.6,1.9,1.4,2.6,2.5c0.6,1.1,1,2.5,1,4.2v15.3c0,1.2,0.1,2,0.2,2.5c0.1,0.5,0.6,0.8,1.3,0.8c0.4,0,0.9-0.1,1.5-0.2V277.6z
+                 M460.6,262.3c-0.6,0.5-1.4,0.8-2.4,1c-1,0.2-2,0.4-3.1,0.5c-1.1,0.1-2.2,0.3-3.3,0.5s-2.1,0.4-3,0.8c-0.9,0.4-1.6,0.9-2.1,1.6
+                c-0.5,0.7-0.8,1.7-0.8,2.9c0,0.8,0.2,1.5,0.5,2c0.3,0.6,0.7,1,1.3,1.3c0.5,0.3,1.1,0.6,1.8,0.7c0.7,0.2,1.4,0.2,2.2,0.2
+                c1.6,0,3-0.2,4.1-0.7c1.1-0.4,2.1-1,2.8-1.7c0.7-0.7,1.2-1.4,1.6-2.2c0.3-0.8,0.5-1.5,0.5-2.2V262.3z M462.2,233.4l-8,9.3h-3.6
+                l5.5-9.3H462.2z"/>
+              <path d="M478,236.6v41.1h-4.8v-41.1H478z"/>
+              <path d="M485.8,242.6v-6h4.8v6H485.8z M490.6,247.9v29.8h-4.8v-29.8H490.6z"/>
+              <path d="M501.8,271.1c0.5,0.7,1.1,1.3,1.8,1.8c0.7,0.4,1.6,0.8,2.5,1c0.9,0.2,1.9,0.3,2.9,0.3c0.8,0,1.6-0.1,2.4-0.2
+                c0.8-0.1,1.6-0.3,2.3-0.6c0.7-0.3,1.3-0.8,1.7-1.4c0.5-0.6,0.7-1.4,0.7-2.3c0-1.3-0.5-2.2-1.4-2.9c-0.9-0.7-2.1-1.2-3.6-1.6
+                c-1.4-0.4-3-0.8-4.6-1.1c-1.7-0.3-3.2-0.8-4.6-1.4c-1.4-0.6-2.6-1.4-3.6-2.5s-1.4-2.6-1.4-4.5c0-1.5,0.3-2.8,1-3.9s1.5-2,2.6-2.6
+                c1-0.7,2.2-1.2,3.5-1.5c1.3-0.3,2.6-0.5,3.9-0.5c1.7,0,3.2,0.1,4.6,0.4c1.4,0.3,2.6,0.8,3.7,1.5c1.1,0.7,1.9,1.7,2.6,2.9
+                s1,2.7,1.1,4.5h-4.8c-0.1-1-0.3-1.8-0.7-2.4c-0.4-0.6-0.9-1.1-1.6-1.5c-0.6-0.4-1.4-0.7-2.1-0.8c-0.8-0.2-1.6-0.3-2.4-0.3
+                c-0.7,0-1.4,0.1-2.2,0.2c-0.7,0.1-1.4,0.3-2,0.6c-0.6,0.3-1.1,0.7-1.5,1.2c-0.4,0.5-0.6,1.1-0.6,1.9c0,0.8,0.3,1.5,0.9,2.1
+                c0.6,0.6,1.3,1,2.2,1.4c0.9,0.4,1.9,0.7,3.1,0.9c1.1,0.3,2.3,0.5,3.4,0.8c1.2,0.3,2.4,0.6,3.6,1c1.2,0.4,2.2,0.9,3.1,1.5
+                c0.9,0.6,1.6,1.4,2.2,2.4c0.5,1,0.8,2.2,0.8,3.6c0,1.8-0.4,3.3-1.1,4.5c-0.7,1.2-1.7,2.2-2.9,2.9s-2.5,1.2-4,1.5
+                c-1.5,0.3-3,0.4-4.5,0.4c-1.6,0-3.2-0.2-4.7-0.5c-1.5-0.3-2.8-0.9-3.9-1.7c-1.1-0.8-2-1.8-2.7-3.1c-0.7-1.3-1.1-2.9-1.1-4.7h4.8
+                C501.1,269.4,501.4,270.3,501.8,271.1z"/>
+              <path d="M526.8,242.6v-6h4.8v6H526.8z M531.7,247.9v29.8h-4.8v-29.8H531.7z"/>
+              <path d="M542.8,271.1c0.5,0.7,1.1,1.3,1.8,1.8c0.7,0.4,1.6,0.8,2.5,1c0.9,0.2,1.9,0.3,2.9,0.3c0.8,0,1.6-0.1,2.4-0.2
+                c0.8-0.1,1.6-0.3,2.3-0.6c0.7-0.3,1.3-0.8,1.7-1.4c0.5-0.6,0.7-1.4,0.7-2.3c0-1.3-0.5-2.2-1.4-2.9c-0.9-0.7-2.1-1.2-3.6-1.6
+                c-1.4-0.4-3-0.8-4.6-1.1c-1.7-0.3-3.2-0.8-4.6-1.4c-1.4-0.6-2.6-1.4-3.6-2.5c-0.9-1.1-1.4-2.6-1.4-4.5c0-1.5,0.3-2.8,1-3.9
+                c0.7-1.1,1.5-2,2.6-2.6c1-0.7,2.2-1.2,3.5-1.5c1.3-0.3,2.6-0.5,3.9-0.5c1.7,0,3.2,0.1,4.6,0.4c1.4,0.3,2.6,0.8,3.7,1.5
+                c1.1,0.7,1.9,1.7,2.6,2.9s1,2.7,1.1,4.5h-4.8c-0.1-1-0.3-1.8-0.7-2.4c-0.4-0.6-0.9-1.1-1.6-1.5c-0.6-0.4-1.4-0.7-2.1-0.8
+                c-0.8-0.2-1.6-0.3-2.4-0.3c-0.7,0-1.4,0.1-2.2,0.2c-0.7,0.1-1.4,0.3-2,0.6c-0.6,0.3-1.1,0.7-1.5,1.2c-0.4,0.5-0.6,1.1-0.6,1.9
+                c0,0.8,0.3,1.5,0.9,2.1c0.6,0.6,1.3,1,2.2,1.4c0.9,0.4,1.9,0.7,3.1,0.9c1.1,0.3,2.3,0.5,3.4,0.8c1.2,0.3,2.4,0.6,3.6,1
+                c1.2,0.4,2.2,0.9,3.1,1.5c0.9,0.6,1.6,1.4,2.2,2.4c0.5,1,0.8,2.2,0.8,3.6c0,1.8-0.4,3.3-1.1,4.5c-0.7,1.2-1.7,2.2-2.9,2.9
+                s-2.5,1.2-4,1.5c-1.5,0.3-3,0.4-4.5,0.4c-1.6,0-3.2-0.2-4.7-0.5c-1.5-0.3-2.8-0.9-3.9-1.7c-1.1-0.8-2-1.8-2.7-3.1
+                c-0.7-1.3-1.1-2.9-1.1-4.7h4.8C542.1,269.4,542.4,270.3,542.8,271.1z"/>
+              <path d="M604.8,277.7v-4h-0.1c-0.8,1.7-2,2.8-3.8,3.6c-1.7,0.7-3.6,1.1-5.6,1.1c-2.3,0-4.3-0.4-5.9-1.3s-3.1-2-4.2-3.4
+                c-1.1-1.4-2-3.1-2.5-5c-0.6-1.9-0.9-3.9-0.9-6c0-2.1,0.3-4.1,0.8-6c0.5-1.9,1.4-3.5,2.5-4.9c1.1-1.4,2.5-2.5,4.2-3.3
+                c1.7-0.8,3.6-1.2,5.9-1.2c0.8,0,1.6,0.1,2.4,0.2c0.9,0.2,1.7,0.4,2.6,0.8c0.9,0.4,1.7,0.8,2.5,1.4c0.8,0.6,1.4,1.3,2,2.2h0.1
+                v-15.3h4.8v41.1H604.8z M587.4,267.1c0.4,1.3,0.9,2.5,1.6,3.5c0.7,1,1.7,1.9,2.8,2.5c1.2,0.6,2.5,0.9,4.1,0.9c1.6,0,3-0.3,4.1-1
+                s2.1-1.5,2.8-2.6c0.7-1.1,1.2-2.3,1.6-3.6c0.3-1.3,0.5-2.7,0.5-4.1c0-1.5-0.2-2.9-0.5-4.2c-0.3-1.4-0.9-2.6-1.6-3.6
+                c-0.7-1-1.7-1.9-2.9-2.5c-1.2-0.6-2.6-1-4.3-1c-1.6,0-3,0.3-4.1,1c-1.1,0.7-2,1.5-2.7,2.6c-0.7,1.1-1.2,2.3-1.5,3.7
+                c-0.3,1.4-0.5,2.8-0.5,4.3C586.9,264.5,587.1,265.8,587.4,267.1z"/>
+              <path d="M637.9,275.8c-2.2,1.7-5,2.5-8.3,2.5c-2.4,0-4.4-0.4-6.1-1.2c-1.7-0.8-3.2-1.8-4.3-3.2c-1.2-1.4-2.1-3-2.6-5
+                c-0.6-1.9-0.9-4-1-6.3c0-2.3,0.3-4.3,1-6.2c0.7-1.9,1.6-3.5,2.9-4.9c1.2-1.4,2.7-2.5,4.4-3.2c1.7-0.8,3.5-1.2,5.5-1.2
+                c2.6,0,4.8,0.5,6.5,1.6c1.7,1.1,3.1,2.5,4.1,4.2c1,1.7,1.8,3.5,2.2,5.5c0.4,2,0.6,3.9,0.5,5.7h-22c0,1.3,0.1,2.5,0.5,3.7
+                c0.3,1.2,0.9,2.2,1.6,3.1c0.8,0.9,1.7,1.6,2.9,2.2c1.2,0.5,2.6,0.8,4.1,0.8c2,0,3.7-0.5,5-1.4c1.3-1,2.2-2.4,2.6-4.4h4.8
+                C641.5,271.6,640.1,274.1,637.9,275.8z M636.7,256.7c-0.4-1-1-1.9-1.8-2.7c-0.7-0.8-1.6-1.3-2.6-1.8c-1-0.4-2.1-0.7-3.3-0.7
+                c-1.2,0-2.4,0.2-3.4,0.7c-1,0.4-1.9,1-2.6,1.8c-0.7,0.8-1.3,1.7-1.7,2.7c-0.4,1-0.7,2.1-0.7,3.3h16.9
+                C637.4,258.8,637.1,257.7,636.7,256.7z"/>
+              <path d="M680.9,253.1c-1.2-1-2.8-1.6-4.9-1.6c-1.7,0-3.2,0.3-4.4,1c-1.2,0.7-2.1,1.5-2.8,2.6c-0.7,1.1-1.2,2.3-1.5,3.7
+                c-0.3,1.4-0.5,2.9-0.5,4.4c0,1.4,0.2,2.7,0.5,4c0.3,1.3,0.8,2.5,1.5,3.5c0.7,1,1.6,1.8,2.7,2.4c1.1,0.6,2.4,0.9,3.9,0.9
+                c2.4,0,4.3-0.6,5.6-1.9c1.3-1.3,2.2-3.1,2.5-5.4h4.9c-0.5,3.7-1.9,6.5-4.1,8.5c-2.2,2-5.1,3-8.9,3c-2.2,0-4.2-0.4-5.9-1.1
+                c-1.7-0.7-3.2-1.8-4.3-3.1c-1.2-1.3-2-2.9-2.6-4.8c-0.6-1.9-0.9-3.9-0.9-6.1c0-2.2,0.3-4.3,0.9-6.3c0.6-1.9,1.4-3.6,2.6-5.1
+                c1.2-1.4,2.6-2.6,4.3-3.4c1.7-0.8,3.8-1.2,6.1-1.2c1.7,0,3.2,0.2,4.7,0.6c1.5,0.4,2.7,1,3.9,1.9c1.1,0.8,2,1.9,2.8,3.2
+                c0.7,1.3,1.2,2.8,1.4,4.6h-5C682.9,255.6,682.2,254.2,680.9,253.1z"/>
+              <path d="M693.2,256.7c0.6-1.9,1.5-3.6,2.7-5c1.2-1.4,2.7-2.5,4.5-3.3c1.8-0.8,3.8-1.2,6.1-1.2c2.4,0,4.4,0.4,6.2,1.2
+                c1.8,0.8,3.2,1.9,4.5,3.3c1.2,1.4,2.1,3.1,2.7,5c0.6,1.9,0.9,3.9,0.9,6.1c0,2.2-0.3,4.2-0.9,6.1c-0.6,1.9-1.5,3.5-2.7,4.9
+                c-1.2,1.4-2.7,2.5-4.5,3.3c-1.8,0.8-3.8,1.2-6.2,1.2c-2.3,0-4.4-0.4-6.1-1.2c-1.8-0.8-3.3-1.9-4.5-3.3c-1.2-1.4-2.1-3-2.7-4.9
+                c-0.6-1.9-0.9-3.9-0.9-6.1C692.3,260.7,692.6,258.6,693.2,256.7z M698.1,267.7c0.5,1.4,1.1,2.6,2,3.5c0.8,0.9,1.8,1.7,2.9,2.2
+                c1.1,0.5,2.3,0.7,3.6,0.7c1.3,0,2.4-0.2,3.6-0.7c1.1-0.5,2.1-1.2,2.9-2.2c0.8-0.9,1.5-2.1,2-3.5c0.5-1.4,0.7-3,0.7-4.8
+                c0-1.8-0.2-3.4-0.7-4.8c-0.5-1.4-1.1-2.6-2-3.5c-0.8-1-1.8-1.7-2.9-2.2c-1.1-0.5-2.3-0.7-3.6-0.7c-1.2,0-2.4,0.3-3.6,0.7
+                c-1.1,0.5-2.1,1.2-2.9,2.2c-0.8,1-1.5,2.1-2,3.5c-0.5,1.4-0.7,3-0.7,4.8C697.4,264.7,697.7,266.3,698.1,267.7z"/>
+              <path d="M731.1,247.9v4.4h0.1c2.2-3.4,5.4-5.1,9.5-5.1c1.8,0,3.5,0.4,4.9,1.2c1.5,0.8,2.5,2.1,3.1,3.9c1-1.6,2.3-2.9,3.9-3.7
+                c1.6-0.9,3.4-1.3,5.3-1.3c1.5,0,2.8,0.2,4,0.5c1.2,0.3,2.2,0.8,3.1,1.5c0.9,0.7,1.5,1.6,2,2.7c0.5,1.1,0.7,2.4,0.7,3.9v21.8h-4.8
+                v-19.5c0-0.9-0.1-1.8-0.2-2.6c-0.2-0.8-0.4-1.5-0.9-2.1c-0.4-0.6-1-1.1-1.7-1.4c-0.7-0.3-1.7-0.5-2.9-0.5c-2.4,0-4.3,0.7-5.6,2.1
+                c-1.4,1.4-2,3.2-2,5.5v18.6h-4.8v-19.5c0-1-0.1-1.8-0.3-2.7c-0.2-0.8-0.5-1.5-0.9-2.1c-0.4-0.6-1-1.1-1.7-1.4
+                c-0.7-0.3-1.6-0.5-2.7-0.5c-1.4,0-2.6,0.3-3.6,0.9c-1,0.6-1.8,1.3-2.4,2.1c-0.6,0.8-1.1,1.6-1.4,2.5c-0.3,0.9-0.4,1.6-0.4,2.2
+                v18.6h-4.8v-29.8H731.1z"/>
+              <path d="M780,236.6V252h0.1c0.8-1.7,2-2.9,3.8-3.6c1.7-0.7,3.6-1.1,5.6-1.1c2.3,0,4.3,0.4,5.9,1.3c1.7,0.8,3.1,2,4.2,3.4
+                c1.1,1.4,2,3.1,2.5,5c0.6,1.9,0.9,3.9,0.9,6c0,2.1-0.3,4.1-0.8,6s-1.4,3.5-2.5,4.9c-1.1,1.4-2.5,2.5-4.2,3.3
+                c-1.7,0.8-3.6,1.2-5.9,1.2c-0.7,0-1.5-0.1-2.4-0.2c-0.9-0.2-1.8-0.4-2.6-0.8c-0.9-0.3-1.7-0.8-2.5-1.4c-0.8-0.6-1.4-1.3-2-2.2H780
+                v4h-4.8v-41.1H780z M797.4,258.5c-0.4-1.3-0.9-2.5-1.6-3.5c-0.7-1-1.7-1.9-2.8-2.5c-1.2-0.6-2.5-0.9-4.1-0.9c-1.6,0-3,0.3-4.1,1
+                c-1.1,0.7-2.1,1.5-2.8,2.6c-0.7,1.1-1.2,2.3-1.6,3.6c-0.3,1.3-0.5,2.7-0.5,4.1c0,1.5,0.2,2.9,0.5,4.2c0.3,1.4,0.9,2.6,1.6,3.6
+                c0.7,1,1.7,1.9,2.9,2.5c1.2,0.6,2.6,0.9,4.3,0.9s3.1-0.3,4.2-1c1.1-0.7,2-1.5,2.7-2.6c0.7-1.1,1.2-2.3,1.5-3.7
+                c0.3-1.4,0.5-2.8,0.5-4.3C797.9,261.2,797.7,259.8,797.4,258.5z"/>
+              <path d="M828.5,277.7V273h-0.1c-1,1.8-2.3,3.2-3.9,4.1c-1.6,0.9-3.5,1.3-5.6,1.3c-1.9,0-3.5-0.3-4.8-0.8c-1.3-0.5-2.3-1.3-3.1-2.2
+                c-0.8-1-1.4-2.1-1.7-3.4c-0.3-1.3-0.5-2.8-0.5-4.4v-19.6h4.8v20.2c0,1.8,0.5,3.3,1.6,4.4c1.1,1.1,2.5,1.6,4.4,1.6
+                c1.5,0,2.8-0.2,3.8-0.7c1.1-0.5,2-1.1,2.7-2c0.7-0.8,1.3-1.8,1.6-3c0.4-1.1,0.5-2.4,0.5-3.7v-16.8h4.8v29.8H828.5z"/>
+              <path d="M844,271.1c0.5,0.7,1.1,1.3,1.8,1.8c0.7,0.4,1.6,0.8,2.5,1c0.9,0.2,1.9,0.3,2.9,0.3c0.8,0,1.6-0.1,2.4-0.2
+                c0.8-0.1,1.6-0.3,2.3-0.6c0.7-0.3,1.3-0.8,1.7-1.4c0.5-0.6,0.7-1.4,0.7-2.3c0-1.3-0.5-2.2-1.4-2.9c-0.9-0.7-2.1-1.2-3.6-1.6
+                c-1.4-0.4-3-0.8-4.6-1.1c-1.7-0.3-3.2-0.8-4.6-1.4c-1.4-0.6-2.6-1.4-3.6-2.5s-1.4-2.6-1.4-4.5c0-1.5,0.3-2.8,1-3.9
+                c0.7-1.1,1.5-2,2.6-2.6c1-0.7,2.2-1.2,3.5-1.5c1.3-0.3,2.6-0.5,3.9-0.5c1.7,0,3.2,0.1,4.6,0.4c1.4,0.3,2.6,0.8,3.7,1.5
+                c1.1,0.7,1.9,1.7,2.6,2.9s1,2.7,1.1,4.5h-4.8c-0.1-1-0.3-1.8-0.7-2.4c-0.4-0.6-0.9-1.1-1.6-1.5c-0.6-0.4-1.4-0.7-2.1-0.8
+                c-0.8-0.2-1.6-0.3-2.4-0.3c-0.7,0-1.4,0.1-2.2,0.2c-0.7,0.1-1.4,0.3-2,0.6c-0.6,0.3-1.1,0.7-1.5,1.2c-0.4,0.5-0.6,1.1-0.6,1.9
+                c0,0.8,0.3,1.5,0.9,2.1c0.6,0.6,1.3,1,2.2,1.4c0.9,0.4,1.9,0.7,3.1,0.9c1.1,0.3,2.3,0.5,3.4,0.8c1.2,0.3,2.4,0.6,3.6,1
+                c1.2,0.4,2.2,0.9,3.1,1.5c0.9,0.6,1.6,1.4,2.2,2.4c0.5,1,0.8,2.2,0.8,3.6c0,1.8-0.4,3.3-1.1,4.5c-0.7,1.2-1.7,2.2-2.9,2.9
+                s-2.5,1.2-4,1.5c-1.5,0.3-3,0.4-4.5,0.4c-1.6,0-3.2-0.2-4.7-0.5c-1.5-0.3-2.8-0.9-3.9-1.7c-1.1-0.8-2-1.8-2.7-3.1
+                c-0.7-1.3-1.1-2.9-1.1-4.7h4.8C843.3,269.4,843.5,270.3,844,271.1z"/>
+              <path d="M881.3,247.9v4.3h-5.9v18.5c0,0.6,0,1,0.1,1.4c0.1,0.3,0.3,0.6,0.5,0.8c0.3,0.2,0.6,0.3,1.1,0.4c0.5,0.1,1.1,0.1,1.8,0.1
+                h2.2v4.3h-3.7c-1.2,0-2.3-0.1-3.2-0.3c-0.9-0.2-1.6-0.5-2.2-1c-0.5-0.5-1-1.1-1.2-2c-0.3-0.8-0.4-2-0.4-3.3v-19h-5v-4.3h5V239h4.8
+                v8.9H881.3z"/>
+              <path d="M886.9,242.6v-6h4.8v6H886.9z M891.7,247.9v29.8h-4.8v-29.8H891.7z"/>
+              <path d="M904.2,236.6V252h0.1c0.8-1.7,2-2.9,3.8-3.6c1.7-0.7,3.6-1.1,5.6-1.1c2.3,0,4.3,0.4,5.9,1.3c1.7,0.8,3.1,2,4.2,3.4
+                c1.1,1.4,2,3.1,2.5,5c0.6,1.9,0.9,3.9,0.9,6c0,2.1-0.3,4.1-0.8,6c-0.5,1.9-1.4,3.5-2.5,4.9c-1.1,1.4-2.5,2.5-4.2,3.3
+                c-1.7,0.8-3.6,1.2-5.9,1.2c-0.7,0-1.5-0.1-2.4-0.2c-0.9-0.2-1.8-0.4-2.6-0.8c-0.9-0.3-1.7-0.8-2.5-1.4c-0.8-0.6-1.4-1.3-2-2.2
+                h-0.1v4h-4.8v-41.1H904.2z M921.6,258.5c-0.4-1.3-0.9-2.5-1.6-3.5c-0.7-1-1.7-1.9-2.8-2.5c-1.2-0.6-2.5-0.9-4.1-0.9
+                c-1.6,0-3,0.3-4.1,1c-1.1,0.7-2.1,1.5-2.8,2.6c-0.7,1.1-1.2,2.3-1.6,3.6c-0.3,1.3-0.5,2.7-0.5,4.1c0,1.5,0.2,2.9,0.5,4.2
+                c0.3,1.4,0.9,2.6,1.6,3.6c0.7,1,1.7,1.9,2.9,2.5c1.2,0.6,2.6,0.9,4.3,0.9c1.7,0,3.1-0.3,4.2-1c1.1-0.7,2-1.5,2.7-2.6
+                c0.7-1.1,1.2-2.3,1.5-3.7c0.3-1.4,0.5-2.8,0.5-4.3C922.1,261.2,921.9,259.8,921.6,258.5z"/>
+              <path d="M938,236.6v41.1h-4.8v-41.1H938z"/>
+              <path d="M966.3,275.8c-2.2,1.7-5,2.5-8.3,2.5c-2.4,0-4.4-0.4-6.1-1.2c-1.7-0.8-3.2-1.8-4.3-3.2c-1.2-1.4-2.1-3-2.6-5
+                c-0.6-1.9-0.9-4-1-6.3c0-2.3,0.3-4.3,1-6.2c0.7-1.9,1.6-3.5,2.9-4.9c1.2-1.4,2.7-2.5,4.4-3.2c1.7-0.8,3.5-1.2,5.5-1.2
+                c2.6,0,4.8,0.5,6.5,1.6c1.7,1.1,3.1,2.5,4.1,4.2c1,1.7,1.8,3.5,2.2,5.5c0.4,2,0.6,3.9,0.5,5.7h-22c0,1.3,0.1,2.5,0.5,3.7
+                c0.3,1.2,0.9,2.2,1.6,3.1c0.8,0.9,1.7,1.6,2.9,2.2c1.2,0.5,2.6,0.8,4.1,0.8c2,0,3.7-0.5,5-1.4c1.3-1,2.2-2.4,2.6-4.4h4.8
+                C969.9,271.6,968.5,274.1,966.3,275.8z M965.2,256.7c-0.4-1-1-1.9-1.8-2.7c-0.7-0.8-1.6-1.3-2.6-1.8c-1-0.4-2.1-0.7-3.3-0.7
+                c-1.2,0-2.4,0.2-3.4,0.7c-1,0.4-1.9,1-2.6,1.8c-0.7,0.8-1.3,1.7-1.7,2.7c-0.4,1-0.7,2.1-0.7,3.3h16.9
+                C965.9,258.8,965.6,257.7,965.2,256.7z"/>
+              <path d="M979.7,271.1c0.5,0.7,1.1,1.3,1.8,1.8c0.7,0.4,1.6,0.8,2.5,1c0.9,0.2,1.9,0.3,2.9,0.3c0.8,0,1.6-0.1,2.4-0.2
+                c0.8-0.1,1.6-0.3,2.3-0.6c0.7-0.3,1.3-0.8,1.7-1.4c0.5-0.6,0.7-1.4,0.7-2.3c0-1.3-0.5-2.2-1.4-2.9c-0.9-0.7-2.1-1.2-3.6-1.6
+                c-1.4-0.4-3-0.8-4.6-1.1c-1.7-0.3-3.2-0.8-4.6-1.4c-1.4-0.6-2.6-1.4-3.6-2.5c-0.9-1.1-1.4-2.6-1.4-4.5c0-1.5,0.3-2.8,1-3.9
+                c0.7-1.1,1.5-2,2.6-2.6c1-0.7,2.2-1.2,3.5-1.5c1.3-0.3,2.6-0.5,3.9-0.5c1.7,0,3.2,0.1,4.6,0.4c1.4,0.3,2.6,0.8,3.7,1.5
+                c1.1,0.7,1.9,1.7,2.6,2.9s1,2.7,1.1,4.5H993c-0.1-1-0.3-1.8-0.7-2.4c-0.4-0.6-0.9-1.1-1.6-1.5c-0.6-0.4-1.4-0.7-2.1-0.8
+                c-0.8-0.2-1.6-0.3-2.4-0.3c-0.7,0-1.4,0.1-2.2,0.2c-0.7,0.1-1.4,0.3-2,0.6c-0.6,0.3-1.1,0.7-1.5,1.2c-0.4,0.5-0.6,1.1-0.6,1.9
+                c0,0.8,0.3,1.5,0.9,2.1c0.6,0.6,1.3,1,2.2,1.4c0.9,0.4,1.9,0.7,3.1,0.9c1.1,0.3,2.3,0.5,3.4,0.8c1.2,0.3,2.4,0.6,3.6,1
+                c1.2,0.4,2.2,0.9,3.1,1.5c0.9,0.6,1.6,1.4,2.2,2.4c0.5,1,0.8,2.2,0.8,3.6c0,1.8-0.4,3.3-1.1,4.5c-0.7,1.2-1.7,2.2-2.9,2.9
+                s-2.5,1.2-4,1.5c-1.5,0.3-3,0.4-4.5,0.4c-1.6,0-3.2-0.2-4.7-0.5c-1.5-0.3-2.8-0.9-3.9-1.7c-1.1-0.8-2-1.8-2.7-3.1
+                c-0.7-1.3-1.1-2.9-1.1-4.7h4.8C979,269.4,979.3,270.3,979.7,271.1z"/>
+            </g>
+          </g>
+          <g>
+            <path class="st0" d="M281.3,57.9L164.4,7L47.4,57.9L0,176l49.6,116.8l114.8,47.5l114.8-47.5L328.8,176L281.3,57.9z M271.5,284.8
+              l-107.1,44.3L57.2,284.8L11,175.8L55.3,65.6l109.1-47.5l109.1,47.5l44.3,110.2L271.5,284.8z"/>
+            <path class="st0" d="M140.5,76.9c0,0,17.1,41.8-11.6,75.4c-28.7,33.6-27.1,66.7-6.4,86.6c26.4,29.7,95.3,19.4,99-46.8
+              C225.3,125.8,138.8,76.6,140.5,76.9z"/>
+            <path class="st1" d="M149.4,89.3c0,0,12.9,38.4-14.8,66.7c-27.7,28.3-28.2,58-10.8,77c21.9,28.2,84.1,23.1,91.3-35.9
+              C222.4,138.1,147.9,88.9,149.4,89.3z"/>
+            <path class="st2" d="M171.8,126.6c0,0,38.4,29.6,25.9,78.3C197.8,204.9,220.5,155.1,171.8,126.6z"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <!--</section>-->
+    <section class="contents">
+      <div class="contents-texts empresa">
+        <div class="wrapper">
+          <div class="mobile-scroll">
+            <div class="contents-main text-white text-shadowed">
+              <svg class="texts-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              	viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+              	<polygon points="0,50.1 14.7,85.6 50,100 85.5,85.3 100,50.3 85.3,14.8 50.2,0 14.7,14.7 "/>
+              </svg>
+              <div class="text-container">
+                <p>Trabajamos con estricto apego a las <span class="text-main">Normas Mexicanas</span> con la finalidad de ofrecer servicios con resultados confiables, brindando la seguridad que nuestros clientes merecen.</p>
+                <p>Somos un laboratorio de ensayo 100% mexicano especializados en realizar análisis de la <strong>calidad en los combustibles.</strong></p>
+              </div>
+            </div>
+            <div class="contents-aside">
+              <p class="text-comprimed">En <span class="text-main">OCTA-PLUS</span> tenemos el firme compromiso de garantizar la comercialización de combustibles de excelente calidad y de mantener el equilibrio ambiental para colaborar con la economía de las familias mexicanas.</p>
+            </div>
+          </div>
+          <div class="arrow-container">
+            <svg class="flecha" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            	 viewBox="0 0 59.4 14.1" style="enable-background:new 0 0 59.4 14.1;" xml:space="preserve">
+            	<style type="text/css">
+            		.st0{fill:#EE6123;}
+            	</style>
+            	<g>
+            		<polygon class="st0" points="57.4,0 29.7,11.3 2,0 0,2 29.7,14.1 59.4,2 	"/>
+            	</g>
+            </svg>
+          </div>
+          <h1 class="contents-title">EMPRESA</h1>
+        </div>
+      </div>
+      <div class="contents-texts servicios">
+        <div class="wrapper">
+          <div class="mobile-scroll">
+            <div class="contents-main text-shadowed">
+              <svg class="texts-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              	viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+              	<polygon points="0,50.1 14.7,85.6 50,100 85.5,85.3 100,50.3 85.3,14.8 50.2,0 14.7,14.7 "/>
+              </svg>
+              <div class="text-container">
+                <p class="text-white">En <span class="text-main">OCTA-PLUS</span> buscamos la más alta calidad de nuestros servicios, es por eso que nos especializamos en dos grandes pilares:</p>
+              </div>
+            </div>
+            <div class="contents-aside text-comprimed">
+              <p class="text-upper"><strong>Análisis de calidad en combustibles</strong></p>
+              <p class="">Nuestras instalaciones cuentan con la capacidad de llevar a cabo el análisis de combustibles, contamos con personal altamente capacitado para asegurar que los estudios se realizan con un alto nivel de calidad, exactitud y precisión.</p>
+              <p class="text-upper"><strong>Sistemas digitales</strong></p>
+              <p class="">Sistema de Registro y Monitoreo de la calidad en los Combustibles en Línea.</p>
+            </div>
+          </div>
+          <div class="arrow-container">
+            <svg class="flecha" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            	 viewBox="0 0 59.4 14.1" style="enable-background:new 0 0 59.4 14.1;" xml:space="preserve">
+            	<style type="text/css">
+            		.st0{fill:#EE6123;}
+            	</style>
+            	<g>
+            		<polygon class="st0" points="57.4,0 29.7,11.3 2,0 0,2 29.7,14.1 59.4,2 	"/>
+            	</g>
+            </svg>
+          </div>
+          <h1 class="contents-title">SERVICIOS</h1>
+        </div>
+      </div>
+      <div class="contents-texts calidad">
+        <div class="wrapper">
+          <div class="mobile-scroll">
+            <div class="contents-aside">
+              <p class="text-comprimed">En el laboratorio <strong class="text-main">OCTA PLUS S.A.P.I. DE C.V.</strong> tenemos el firme compromiso de brindar a nuestros clientes calidad en los ensayos a hidrocarburos, basados en la buena práctica profesional; el conocimiento y experiencia de nuestro personal; los métodos de trabajo implementados y los principios de imparcialidad, integridad y objetividad.</p>
+            </div>
+            <div class="contents-main text-shadowed">
+              <svg class="texts-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              	viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+              	<polygon points="0,50.1 14.7,85.6 50,100 85.5,85.3 100,50.3 85.3,14.8 50.2,0 14.7,14.7 "/>
+              </svg>
+              <div class="text-container">
+                <p class="text-white">Nuestro servicio de análisis de la calidad en los combustibles y atención al cliente cumple con los estándares establecidos en la Norma Mexicana <span class="text-main">NMX-EC-17025-IMNC-2006</span> y su sistema de gestión de calidad, que avala a los laboratorios de ensayo y calibraciones a nivel nacional. De esta forma garantizamos a nuestros clientes que los resultados son confiables y completamente transparentes ayudando al cumplimiento de la Norma <span class="text-main">NOM-EM-005-CRE-2015.</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="arrow-container">
+            <svg class="flecha" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            	 viewBox="0 0 59.4 14.1" style="enable-background:new 0 0 59.4 14.1;" xml:space="preserve">
+            	<style type="text/css">
+            		.st0{fill:#EE6123;}
+            	</style>
+            	<g>
+            		<polygon class="st0" points="57.4,0 29.7,11.3 2,0 0,2 29.7,14.1 59.4,2 	"/>
+            	</g>
+            </svg>
+          </div>
+          <h1 class="contents-title">CALIDAD</h1>
+        </div>
+      </div>
+      <div class="contents-text contacto">
+        <div class="wrapper">
+          <h1 class="contents-title">CONTACTO</h1>
+          <object type="image/svg+xml" data="img/octagono-bg.svg" class="texts-svg">
+          </object>
+          <div class="formulario">
+            <div ng-controller="Formulario">
+              <div ng-show="!envioexitoso">
+                <div class="row row-flex row-nomargin">
+                  <div class="instrucciones">
+                    <p>Selecciona una opción para comunicarte con nosotros:</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <form name="tipocontacto"></form>
+                  <md-input-container class="form-tipo md-block">
+                    <md-select ng-model="tipo" placeholder="Asunto" ng-change="update()">
+                      <md-option value="1">Solucitud de servicio</md-option>
+                      <md-option value="2">Ayudanos a mejorar</md-option>
+                      <md-option value="3">Dudas y comentarios</md-option>
+                    </md-select>
+                  </md-input-container>
+                </div>
+                <div class="contacto-tipo" ng-show="formularioActivo == 1">
+                  <form name="formservicio" ng-submit="enviarFormulario('servicio')">
+                    <div class="row">
+                      <md-input-container class="form-tipo-cliente">
+                        <md-select name="tipoCliente" ng-model="formS.tipoCliente" placeholder="Tipo de cliente ">
+                          <md-option value="productor">Productor</md-option>
+                          <md-option value="franquicia">Franquicia</md-option>
+                          <md-option value="regulador">Regulador</md-option>
+                        </md-select>
+                        <div class="errors" ng-messages="formservicio.tipoCliente.$error">
+                          <div ng-message="required">Requerido</div>
+                        </div>
+                      </md-input-container>
+                      <md-radio-group ng-model="formS.tipoRelacion" class="form-cliente-radio">
+                        <div class="form-cliente-radio-op">
+                          <p>
+                            <md-radio-button value="nuevo">Cliente Nuevo</md-radio-button>
+                          </p>
+                        </div>
+                        <div class="form-cliente-radio-op">
+                          <p>
+                            <md-radio-button value="actual"> Cliente Actual</md-radio-button>
+                          </p>
+                        </div>
+                      </md-radio-group>
+                    </div>
+                    <div class="row">
+                      <div class="form-nombre">
+                        <md-input-container class="md-block">
+                          <label>
+                            <span class="mobile-hidden inline">Nombre, </span>Denominación o Razón Social
+                          </label>
+                          <input required type="text" name="nombre" ng-model="formS.nombre" minlength="5" md-maxlength="120" />
+                          <div ng-messages="formservicio.nombre.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength']">
+                              Se requieren al menos 5 caracteres.
+                            </div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                      <div class="form-rfc">
+                        <md-input-container class="md-block">
+                          <label>RFC </label>
+                          <input required type="text" name="rfc" ng-model="formS.rfc" minlength="11" md-maxlength="14" />
+                          <div ng-messages="formservicio.rfc.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength']">
+                              Se requieren al menos 11 caracteres.
+                            </div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-domicilio-fiscal">
+                        <md-input-container class="md-block">
+                          <label>Domicilio Fiscal</label>
+                          <input required type="text" name="domicilioFiscal" ng-model="formS.domicilioFiscal" minlength="15" md-maxlength="120" />
+                          <div ng-messages="formservicio.domicilioFiscal.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength']">
+                              Se requieren al menos 15 caracteres.
+                            </div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-nombre-comercial">
+                        <md-input-container class="md-block">
+                          <label>Nombre Comercial </label>
+                          <input required type="text" name="nombreComercial" ng-model="formS.nombreComercial" minlength="5" md-maxlength="120" />
+                          <div ng-messages="formservicio.nombreComercial.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength']">
+                              Se requieren al menos 5 caracteres.
+                            </div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-actividad">
+                        <md-input-container class="md-block">
+                          <label>Actividad Económica </label>
+                          <input required type="text" name="actividad" ng-model="formS.actividad" minlength="5" md-maxlength="120" />
+                          <div ng-messages="formservicio.actividad.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength']">
+                              Se requieren al menos 5 caracteres.
+                            </div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-nombre-contacto">
+                        <md-input-container class="md-block">
+                          <label>Nombre y Cargo del Contacto </label>
+                          <input required type="text" name="actividad" ng-model="formS.nombreContacto" minlength="5" md-maxlength="120" />
+                          <div ng-messages="formservicio.nombreContacto.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength']">
+                              Se requieren al menos 5 caracteres.
+                            </div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-mail">
+                        <md-input-container class="md-block">
+                          <label>Correo Electrónico:</label>
+                          <input required type="email" name="mail" ng-model="formS.mail"
+                          minlength="6" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                          <div ng-messages="formservicio.mail.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                              Se requiere un mail válido.
+                            </div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-direccion">
+                        <md-input-container class="md-block">
+                          <label>Dirección </label>
+                          <input required type="text" name="direccion" ng-model="formS.direccion" minlength="10" md-maxlength="120" />
+                          <div ng-messages="formservicio.direccion.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength']">
+                              Se requieren al menos 10 caracteres.
+                            </div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-telefono">
+                        <md-input-container class="md-block">
+                          <label>Teléfonos </label>
+                          <input required type="text" name="telefono" ng-model="formS.telefono" minlength="8" md-maxlength="24" />
+                          <div ng-messages="formservicio.telefono.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength']">
+                              Se requieren al menos 8 números.
+                            </div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                      <div class="form-extencion">
+                        <md-input-container class="md-block">
+                          <label>Extensión </label>
+                          <input type="number" name="extencion" ng-model="formS.extencion" />
+                        </md-input-container>
+                      </div>
+                    </div>
+                    <div class="row row-flex">
+                      <p class="text-main ensayos">Ensayos Solicitados </p>
+                    </div>
+                    <div class="row row-flex">
+                      <div class="form-ensayo-tipo">
+                        <div class="form-ensayo-tipo-opcion">
+                          <md-checkbox ng-model="formS.ensayoTipo.magna" aria-label="Checkbox 1">
+                            Octanaje en Magna
+                          </md-checkbox>
+                        </div>
+                        <div class="form-ensayo-tipo-opcion">
+                          <md-checkbox ng-model="formS.ensayoTipo.premium" aria-label="Checkbox 1">
+                            Octanaje en Premium
+                          </md-checkbox>
+                        </div>
+                        <div class="form-ensayo-tipo-opcion">
+                          <md-checkbox ng-model="formS.ensayoTipo.diesel" aria-label="Checkbox 1">
+                            Cetano en Diesel
+                          </md-checkbox>
+                        </div>
+                      </div>
+                      <div class="form-separador">/</div>
+                      <div class="form-ensayo-periodicidad">
+                        <md-radio-group name="ensayo-periodicidad" ng-model="formS.ensayosPeriodicidad" required>
+                          <div class="form-cliente-radio">
+                            <p>
+                              <md-radio-button value="periodico"> Periódico</md-radio-button>
+                            </p>
+                          </div>
+                          <div class="form-cliente-radio">
+                            <p>
+                              <md-radio-button value="eventual"> Eventual</md-radio-button>
+                            </p>
+                          </div>
+                        </md-radio-group>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <hr>
+                      <div class="terminos">
+                        <md-checkbox ng-model="formS.terminos" aria-label="terminos" required>
+                        </md-checkbox>
+                        He leído y Acepto el <a ng-click="$parent.abrirLightbox();">Aviso de Privacidad</a>
+                      </div>
+                      <div class="submit">
+                        <!-- <button class="btn submit-servicio" ng-disabled="!formS.terminos">Enviar <i class="material-icons">send</i></button> -->
+                        <button class="btn submit-servicio" ng-disabled="!formS.terminos">Enviar <!-- <i class="material-icons">send</i> --></button>
+
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="contacto-tipo" ng-show="formularioActivo == 2">
+                  <form class="form-ayudanos" name="formayudanos" ng-submit="enviarFormulario('ayudanos')">
+                    <div class="row">
+                      <div class="fc-nombre">
+                        <md-input-container class="md-block">
+                          <label>Nombre</label>
+                          <input required type="text" name="nombre" ng-model="formA.nombre" minlength="5" md-maxlength="120" />
+                          <div ng-messages="formayudanos.nombre.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength']">
+                              Se requieren al menos 5 caracteres.
+                            </div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                      <div class="fc-correo">
+                        <md-input-container class="md-block">
+                          <label>Correo Electrónico:</label>
+                          <input required type="email" name="correo" ng-model="formA.correo"
+                          minlength="6" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                          <div ng-messages="formayudanos.correo.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                              Se requiere un mail válido.
+                            </div>
+                          </div>
+                        </md-input-container>
+                      </div>
+
+                      <div class="fc-telefono">
+                        <md-input-container class="md-block">
+                          <label>Teléfono</label>
+                          <input required type="text" name="telefono" ng-model="formA.telefono" minlength="8" md-maxlength="50" />
+                          <div ng-messages="formayudanos.telefono.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength']">
+                              Se requieren al menos 8 números.
+                            </div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <md-input-container class="md-block">
+                        <label>Comentarios</label>
+                        <textarea ng-model="formA.comentarios" columns="1" md-maxlength="250" rows="3"></textarea>
+                      </md-input-container>
+                    </div>
+                    <div class="row">
+                      <div class="terminos">
+                        <md-checkbox ng-model="formA.terminos" aria-label="terminos" required>
+                        </md-checkbox>
+                          He leído y Acepto el <a ng-click="$parent.abrirLightbox();">Aviso de Privacidad</a>
+                      </div>
+                      <div class="submit">
+                        <!-- <button class="btn submit-servicio" ng-disabled="!formA.terminos">Enviar <i class="material-icons">send</i></button> -->
+                        <button class="btn submit-servicio" ng-disabled="!formA.terminos">Enviar</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="contacto-tipo" ng-show="formularioActivo == 3">
+                  <form class="form-ayudanos" name="formcomentarios" ng-submit="enviarFormulario('comentarios')">
+                    <div class="row">
+                      <div class="fc-nombre">
+                        <md-input-container class="md-block">
+                          <label>Nombre</label>
+                          <input required type="text" name="nombre" ng-model="formComentarios.nombre" minlength="5" md-maxlength="120" />
+                          <div ng-messages="formcomentarios.nombre.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength']">
+                              Se requieren al menos 5 caracteres.
+                            </div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                      <div class="fc-correo">
+                        <md-input-container class="md-block">
+                          <label>Correo Electrónico:</label>
+                          <input required type="email" name="correo" ng-model="formComentarios.correo"
+                          minlength="6" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                          <div ng-messages="formcomentarios.correo.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                              Se requiere un mail válido.
+                            </div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                      <div class="fc-telefono">
+                        <md-input-container class="md-block">
+                          <label>Teléfono</label>
+                          <input required type="text" name="telefono" ng-model="formComentarios.telefono" minlength="8" md-maxlength="50" />
+                          <div ng-messages="formcomentarios.telefono.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength']">
+                              Se requieren al menos 8 números.
+                            </div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <md-input-container class="md-block">
+                        <label>Comentarios</label>
+                        <textarea ng-model="formComentarios.comentarios" columns="1" md-maxlength="250" rows="3"></textarea>
+                      </md-input-container>
+                    </div>
+                    <div class="row">
+                      <div class="terminos">
+                        <md-checkbox ng-model="formComentarios.terminos" aria-label="terminos" required>
+                        </md-checkbox>
+                        He leído y Acepto el <a ng-click="$parent.abrirLightbox();">Aviso de Privacidad</a>
+                      </div>
+                      <div class="submit">
+                        <!-- <button class="btn submit-servicio" ng-disabled="!formComentarios.terminos">Enviar <i class="material-icons">send</i></button> -->
+                        <button class="btn submit-servicio" ng-disabled="!formComentarios.terminos">Enviar</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div ng-show="envioexitoso">
+                <p class="text-center">Su formulario se ha enviado con éxito. Gracias por contactarnos, nos comunicarémos con usted a la brevedad.</p>
+                <button class="btn regresar" ng-click="envioexitoso = null; tipo = 'asunto';">Regresar</button>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="brand">
+      <div class="contents-texts">
+        <div class="wrapper">
+          <p class="copyright"><i>© 2016 OCTA-PLUS</i></p>
+        </div>
+      </div>
+      <div class="contents-texts copy">
+        <div class="wrapper">
+          <h2 class="quienes-somos">
+            LABORATORIO <span class="text-main">MEXICANO</span> ESPECIALIZADO EN REALIZAR ANÁLISIS DE LA <span class="text-main">CALIDAD</span> EN LOS COMBUSTIBLES.
+          </h2>
+        </div>
+      </div>
+    </section>
+    <section class="mask">
+      <img id="mask-svg" src="img/octagono-path.png">
+      <!-- <svg version="1.1" id="mask-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
+      <path id="mask-path" d="M300,300H0V0h300V300z M185.9,185.4l14.1-34.1l-14.6-35.3L150.5,100l-35.3,14.6L100,151.3l14.6,35.3l35.9,13.4L185.9,185.4z
+        "/>
+      </svg> -->
+      <div class="octagonos lateral">
+        <!-- <div class="oct shadow"> -->
+        <!-- </div> -->
+        <div class="oct nit e1">
+          <img src="img/bgs-oct/oct-clear.png">
+          <!-- <img class="shadow" src="img/bgs-oct/oct-sdw.png"> -->
+        </div>
+        <div class="oct nit e2">
+          <img src="img/bgs-oct/oct-clear.png">
+        </div>
+        <div class="oct nit e3">
+          <img src="img/bgs-oct/oct-clear.png">
+        </div>
+        <div class="oct blur1 e1">
+          <img src="img/bgs-oct/oct-blur-1.png">
+        </div>
+        <div class="oct blur1 e2">
+          <img src="img/bgs-oct/oct-blur-1.png">
+        </div>
+        <div class="oct blur1 e3">
+          <img src="img/bgs-oct/oct-blur-1.png">
+        </div>
+        <div class="oct blur2 e1">
+          <img src="img/bgs-oct/oct-blur-2.png">
+        </div>
+        <div class="oct blur2 e2">
+          <img src="img/bgs-oct/oct-blur-2.png">
+        </div>
+        <div class="oct blur2 e3">
+          <img src="img/bgs-oct/oct-blur-2.png">
+        </div>
+      </div>
+      <!-- <div class="octagonos abajo">
+      </div> -->
+    </section>
+    <section class="bgs">
+      <div class="bgs-img empresa"></div>
+      <div class="bgs-img servicios"></div>
+      <div class="bgs-img calidad"></div>
+      <div class="bgs-img contacto"></div>
+    </section>
+    <section class="parallax">
+      <ul class="parallax-scene unselectable">
+        <li class="layer" data-depth="0">
+          <div class="inicio-bg full-img"></div>
+        </li>
+        <li class="layer" data-depth="0.1">
+          <div class="inicion-sea-pattern"></div>
+          <div class="inicio-sea"></div>
+          <!-- <img src="img/intro-plataforma.png" class="inicio-sea"> -->
+        </li>
+        <li class="layer blend-screen" data-depth="0.3">
+          <div class="inicio-glance-img full-img"></div>
+        </li>
+        <li class="layer blend-overlay" data-depth=".40">
+          <div class="inicio-flare-down full-img"></div>
+        </li>
+        <li class="layer blend-overlay" data-depth="1">
+          <div class="inicio-flare-up full-img"></div>
+        </li>
+      </ul>
+      <div class="hidden">
+        <!-- <img src="img/bg-empresa.jpg" alt="">
+        <img src="img/bg-servicios.jpg" alt="">
+        <img src="img/bg-calidad.jpg" alt="">
+        <img src="img/bg-contacto.jpg" alt=""> -->
+      </div>
+    </section>
+  </content>
+
+  <div id="lightbox-overlay" ng-click="cerrarLightbox()"></div>
+
+  <div class="lightbox-content">
+    <svg version="1.1" id="lightbox-bg-svg" ng-click="cerrarLightbox()" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+       viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+    <polygon class="lightbox-bg-path" points="50.5,100 14.7,85.3 0,49.8 15.2,14.7 50.7,0 85.3,14.5 100,50 86,85.3 "/>
+    </svg>
+    <div class="lightbox-texts">
+      <div class="content-scroll" ng-scrollbars ng-scrollbars-config="configScroll">
+        <div class="lightbox-scroll">
+          <h4>Aviso de Privacidad</h4>
+          <p>Con fundamento en los artículos 15 y 16 de la Ley Federal de Protección de Datos Personales en Posesión de Particulares, hacemos de su conocimiento que OCTA-PLUS S.A.P.I. DE C.V. , con domicilio en MONTES URALES N° 770 PISO 1, COLONIA LOMAS DE CHAPULTEPEC, DELEGACIÓN MIGUEL HIDALGO, DISTRITO FEDERAL, CP. 11000 MÉXICO, es responsable de recabar sus datos personales, del uso que se le dé a los mismos y de su protección.</p>
+          <p>Su información personal será utilizada para las siguientes finalidades: proveer los servicios y ensayos que ha solicitado; notificarle sobre nuevos servicios o ensayos que tengan relación con los ya contratados o adquiridos; comunicarle sobre cambios en los mismos; realizar evaluaciones periódicas de nuestros servicios a efecto de mejorar la calidad de los mismos; evaluar la calidad del servicio que brindamos, y en general, para dar cumplimiento a las obligaciones que hemos contraído con usted.</p>
+          <p>Para las finalidades antes mencionadas, requerimos obtener los siguientes datos personales:</p>
+          <ul>
+            <li>Nombre completo</li>
+            <li>Teléfono fijo y/o celular</li>
+            <li>Correo electrónico</li>
+            <li>Dirección</li>
+            <li>RFC y/o CURP</li>
+          </ul>
+          <p></p>
+          <p>Adicionalmente podríamos solicitarle información relacionada con sus estados financieros, su contabilidad, su situación fiscal, legal o estatutaria y demás información necesaria para dar cumplimiento a los servicios que usted nos haya solicitado.</p>
+          <p>Es importante informarle que usted tiene derecho al acceso, rectificación y cancelación de sus datos personales, a oponerse al tratamiento de los mismos o a revocar el consentimiento que para dicho fin nos haya otorgado.</p>
+          <p>Para ello, es necesario que envíe la solicitud en los términos que marca la Ley anteriormente mencionada en su Artículo 29 a ANA LIDIA ORTIZ MARTÍNEZ, responsable de nuestro Departamento de Protección de Datos Personales, quien se ubica en MONTES URALES N° 770 PISO 1, COLONIA LOMAS DE CHAPULTEPEC, DELEGACIÓN MIGUEL HIDALGO, DISTRITO FEDERAL, CP. 11000 MÉXICO o bien, comunicarse al teléfono (55) 52029062 o vía correo electrónico a <a href="mailto:pdatos@octa-plus.com">pdatos@octa-plus.com</a>, solicitándole en este último caso, confirme la recepción de su comunicado, vía telefónica para garantizar su correcta recepción.</p>
+          <p>Importante: Cualquier modificación a este Aviso de Privacidad podrá consultarlo en nuestro sitio <a target="_blank" href="http://www.octa-plus.com/">www.octa-plus.com</a> o directamente en nuestras oficinas.</p>
+        </div>
+      </div>
+      <div class="lightbox-close" ng-click="cerrarLightbox()">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 357 357" style="enable-background:new 0 0 357 357;" xml:space="preserve">
+          <g>
+            <g id="close">
+              <polygon points="357,35.7 321.3,0 178.5,142.8 35.7,0 0,35.7 142.8,178.5 0,321.3 35.7,357 178.5,214.2 321.3,357 357,321.3
+                214.2,178.5 		"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    //LANZAMOS LA ANIMACIÓN
+    setTimeout(function(){
+      document.getElementsByClassName("loader-icon")[0].className += ' active';
+      setTimeout(function(){
+        document.getElementsByClassName("loader")[0].className += ' animado';
+      }, 310);
+    }, 310);
+  </script>
+  <script src="js/scripts.min.js"></script>
+
+</body>
+</html>

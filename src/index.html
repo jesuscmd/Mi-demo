@@ -2,12 +2,9 @@
 <html lang="en">
 
 <head>
-  <title>JCMD portfolio | Jesús Castillo | Design & Illustration</title>
+  <title>JCMD portfolio | Jesús Castillo</title>
   <meta charset="utf-8" />
-  <meta name="description" content="Jesus Castillo Morales front-end developer /
-			illustrator / designer" />
-  <meta name="viewport" content="width=device-width, initial-scale=1,
-      shrink-to-fit=no" />
+
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40008858-1"></script>
@@ -20,7 +17,18 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-40008858-1');
+
   </script>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5BP9ZXM');</script>
+  <!-- End Google Tag Manager -->
 
   <link rel="stylesheet" href="css/animate.css" />
   <link rel="stylesheet" href="css/flexslider.css" />
@@ -51,17 +59,25 @@
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
   <meta name="theme-color" content="#ffffff" />
 
+  <!-- <meta name="description" content="Front-end Development /
+  Illustration / Design" />
+  <meta name="viewport" content="width=device-width, initial-scale=1,
+      shrink-to-fit=no" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="JCMD portfolio | Jesús Castillo | Design & Illustration" />
-  <meta property="og:description" content="Jesus Castillo Morales front-end developer /
-  illustrator / designer" />
+  <meta property="og:title" content="JCMD portfolio | Jesús Castillo" />
+  <meta property="og:description" content="Front-end Development /
+  Illustration / Design" />
   <meta property="og:image" content="http://jesuscmd.com/images/p12.jpg" />
   <meta property="og:url" content="http://jesuscmd.com/" />
-  <meta property="og:site_name" content="JCMD portfolio | Jesús Castillo" />
+  <meta property="og:site_name" content="JCMD portfolio | Jesús Castillo" /> -->
 
 </head>
 
 <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BP9ZXM" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <nav class="navbar navbar-expand-lg site-navbar navbar-light bg-light" id="pb-navbar">
     <div class="container">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
@@ -117,8 +133,8 @@
       </div>
       <div class="filters">
         <ul>
-          <li class="active" data-filter="*">All</li>
-          <li data-filter=".front">Front-end</li>
+          <li class="active" data-filter="*" onclick="ga('send', 'event', 'Filtro trabajos', 'todos');">All</li>
+          <li data-filter=".front" onclick="ga('send', 'event', 'Filtro trabajo', 'front');">Front-end</li>
           <li data-filter=".design">Design</li>
           <li data-filter=".illustration">Illustration</li>
           <!-- <li data-filter=".photography">Photography</li> -->
@@ -750,7 +766,9 @@
               <img src="images/post_1.jpg" alt="Toma el control de tu TDAH" class="img-fluid" />
             </a>
             <div class="blog-entry-text">
-              <h3><a target="blank" href="/libros/toma-el-control-de-tu-TDAH.pdf">Toma el control de tu TDAH</a></h3>
+              <h3><a target="blank" href="/libros/toma-el-control-de-tu-TDAH.pdf"
+                  onclick="ga('send', 'event', 'Descarga', 'Libro TDAH');">Toma el control de tu TDAH</a>
+              </h3>
               <p class="mb-4">
                 Libro escrito por Russell A. Barkley.
               </p>
@@ -901,21 +919,25 @@
       <div class="row mb-5">
         <div class="col-md-12 text-center">
           <p>
-            <a href="https://www.behance.net/jcmd" class="social-item" target="_blank"><span
-                class="icon-behance"></span></a>
-            <a href="https://www.instagram.com/jesuscmd/?hl=es-la" class="social-item" target="_blank"><span
+            <a href="https://www.behance.net/jcmd" class="social-item" target="_blank"
+              onclick="ga('send', 'event', 'Redes sociales', 'Visita', 'Behance');">
+              <span class="icon-behance"></span>
+            </a>
+            <a href="https://www.instagram.com/jesuscmd/?hl=es-la" class="social-item" target="_blank"
+              onclick="ga('send', 'event', 'Redes sociales', 'Visita', 'Instagram');"><span
                 class="icon-instagram2"></span></a>
-            <a href="https://dribbble.com/jesuscmd" class="social-item" target="_blank"><span
+            <a href="https://dribbble.com/jesuscmd" class="social-item" target="_blank"
+              onclick="ga('send', 'event', 'Redes sociales', 'Visita', 'dribbble');"><span
                 class="icon-dribbble"></span></a>
-            <a href="https://github.com/jesuscmd" class="social-item" target="_blank"><span
-                class="icon-github"></span></a>
+            <a href="https://github.com/jesuscmd" class="social-item" target="_blank"
+              onclick="ga('send', 'event', 'Redes sociales', 'Visita', 'Github');"><span class="icon-github"></span></a>
           </p>
         </div>
       </div>
       <div class="row mb-5">
         <p class="col-12 text-center small">
-          <a href="tel:5568092331">(01) 55 68092331</a> |
-          <a href="mailto:me@jesuscmd.com">me@jesuscmd.com</a>
+          <a href="tel:5568092331" onclick="ga('send', 'event', 'Llamada');">(01) 55 68092331</a> |
+          <a href="mailto:me@jesuscmd.com" onclick="ga('send', 'event', 'Correo');">me@jesuscmd.com</a>
           <br>CDMX México
         </p>
       </div>
